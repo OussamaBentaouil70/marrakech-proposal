@@ -1,12 +1,19 @@
 'use client'
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { navLinks, siteConfig } from '@/data/content'
+import { navLinks as defaultNavLinks, siteConfig as defaultSiteConfig } from '@/data/content'
 import { cn } from '@/lib/utils'
+import LanguageSwitcher from '@/components/ui/LanguageSwitcher'
 
-export default function Navbar() {
+type NavLink = { label: string; href: string }
+type SiteConfig = typeof defaultSiteConfig
+
+export default function Navbar({ navLinks, siteConfig }: { navLinks?: NavLink[]; siteConfig?: SiteConfig }) {
+  navLinks = navLinks ?? defaultNavLinks
+  siteConfig = siteConfig ?? defaultSiteConfig
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [hidden, setHidden] = useState(false)
@@ -48,19 +55,18 @@ export default function Navbar() {
       >
         <div className="max-w-[1600px] mx-auto px-6 lg:px-12 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex flex-col items-start">
-            <span
-              className="font-heading text-ivory leading-none"
-              style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', letterSpacing: '0.08em' }}
-            >
-              Marrakech
-            </span>
-            <span
-              className="font-heading text-gold leading-none"
-              style={{ fontSize: 'clamp(0.65rem, 1.2vw, 0.875rem)', letterSpacing: '0.25em', textTransform: 'uppercase' }}
-            >
-              Proposal
-            </span>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/images/logo.png"
+              alt="Marrakech Proposal"
+              width={220}
+              height={76}
+              className={cn(
+                'w-auto object-contain transition-all duration-500',
+                scrolled ? 'h-16' : 'h-24 brightness-0 invert'
+              )}
+              priority
+            />
           </Link>
 
           {/* Desktop Nav */}
@@ -87,7 +93,8 @@ export default function Navbar() {
           </ul>
 
           {/* Right Actions */}
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-5">
+            <LanguageSwitcher />
             <a
               href={`https://wa.me/${siteConfig.whatsapp}`}
               target="_blank"
@@ -170,7 +177,10 @@ export default function Navbar() {
               >
                 WhatsApp Us
               </a>
-              <p className="font-body text-xs text-taupe tracking-widest uppercase mt-4">
+              <div className="mt-2">
+                <LanguageSwitcher />
+              </div>
+              <p className="font-body text-xs text-taupe tracking-widest uppercase mt-2">
                 {siteConfig.email}
               </p>
             </div>

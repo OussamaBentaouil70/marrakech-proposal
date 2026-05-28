@@ -2,6 +2,7 @@ export interface BlogSection {
   heading?: string
   body: string[]
   list?: string[]
+  image?: string
 }
 
 export interface BlogPostData {
@@ -38,6 +39,7 @@ export const blogPostsData: Record<string, BlogPostData> = {
       },
       {
         heading: 'Why Choose Marrakech for Your Destination Wedding?',
+        image: '/images/blog/blog-2.jpg',
         body: [
           'Marrakech offers a unique balance between luxury, authenticity, and unforgettable experiences.',
           'Whether you imagine a wedding in the Agafay Desert at sunset, a romantic ceremony in a riad in the heart of the Medina, an elegant wedding in a private villa surrounded by palm trees, or a multi-day celebration in a Moroccan palace — Marrakech offers spectacular venues and incomparable magical atmospheres.',
@@ -65,6 +67,7 @@ export const blogPostsData: Record<string, BlogPostData> = {
       },
       {
         heading: 'Choosing the Perfect Wedding Venue in Marrakech',
+        image: '/images/blog/blog-3.jpg',
         body: [
           'The venue is the foundation of your entire wedding experience. Marrakech offers an incredible diversity of settings — luxury palaces, traditional riads, private villas, desert camps, boutique hotels, estates with olive groves, panoramic rooftops, and elegant gardens.',
           'When choosing your wedding venue in Marrakech, several elements must be considered: accommodation capacity, privacy and exclusivity, accessibility, sound restrictions, catering possibilities, weather backup plans, flow between ceremony and dinner, technical possibilities, and guest comfort.',
@@ -81,6 +84,7 @@ export const blogPostsData: Record<string, BlogPostData> = {
       },
       {
         heading: 'Organizing Guest Logistics for a Destination Wedding',
+        image: '/images/blog/blog-4.jpg',
         body: [
           'Guest management is one of the most important aspects of a destination wedding in Marrakech. Your guests may be traveling from different countries and often discovering Morocco for the first time. Clear communication and careful organization will greatly enhance their experience.',
           'Key elements include: accommodation management, airport transfers, wedding schedules, local recommendations, transport between venues, welcome gifts, dress code advice, and activity suggestions.',
@@ -97,6 +101,7 @@ export const blogPostsData: Record<string, BlogPostData> = {
       },
       {
         heading: 'Adding Moroccan Experiences to Your Wedding',
+        image: '/images/blog/blog-5.jpg',
         body: [
           'One of the most magical aspects of a wedding in Marrakech is the opportunity to offer your guests unforgettable cultural experiences.',
           'Many couples incorporate: Gnawa musicians, traditional Moroccan dancers, henna ceremonies, camel arrival processions, desert dinners, fire shows, Moroccan tea ceremonies, artisan workshops, and live oriental music.',
@@ -150,6 +155,7 @@ export const blogPostsDataFR: Record<string, BlogPostData> = {
       },
       {
         heading: 'Pourquoi choisir Marrakech pour votre mariage de destination ?',
+        image: '/images/blog/blog-2.jpg',
         body: [
           'Marrakech offre un équilibre unique entre luxe, authenticité et expériences inoubliables.',
           'Que vous imaginiez un mariage dans le désert d\'Agafay au coucher du soleil, une cérémonie romantique dans un riad au cœur de la Médina, un mariage élégant dans une villa privée entourée de palmiers, ou une célébration multi-jours dans un palais marocain — Marrakech propose des lieux spectaculaires et des atmosphères magiques incomparables.',
@@ -177,6 +183,7 @@ export const blogPostsDataFR: Record<string, BlogPostData> = {
       },
       {
         heading: 'Choisir le lieu de mariage idéal à Marrakech',
+        image: '/images/blog/blog-3.jpg',
         body: [
           'Le lieu de réception constitue la base de toute l\'expérience de votre mariage. Marrakech propose une incroyable diversité de lieux — palais luxueux, riads traditionnels, villas privées, camps dans le désert, hôtels boutique, domaines avec oliveraies, rooftops panoramiques, et jardins élégants.',
           'Lors du choix de votre lieu de mariage à Marrakech, plusieurs éléments doivent être pris en compte : capacité d\'hébergement, intimité et privatisation, accessibilité, restrictions sonores, possibilités de restauration, plan B météo, fluidité entre cérémonie et dîner, contraintes techniques, et confort des invités.',
@@ -193,6 +200,7 @@ export const blogPostsDataFR: Record<string, BlogPostData> = {
       },
       {
         heading: 'Travailler avec des prestataires locaux de confiance',
+        image: '/images/blog/blog-4.jpg',
         body: [
           'Construire la bonne équipe de prestataires est essentiel pour la réussite d\'un mariage de destination à Marrakech. Un wedding planner local expérimenté vous donnera accès à des photographes de confiance, vidéastes, fleuristes, traiteurs, musiciens live, DJs, maquilleurs, équipes transport, techniciens lumière et son, animateurs, et spécialistes production.',
           'L\'expertise locale est particulièrement importante au Maroc, car la logistique, les délais et les méthodes de travail peuvent varier considérablement selon les lieux et les fournisseurs.',
@@ -201,6 +209,7 @@ export const blogPostsDataFR: Record<string, BlogPostData> = {
       },
       {
         heading: 'Ajouter des expériences marocaines à votre mariage',
+        image: '/images/blog/blog-5.jpg',
         body: [
           'L\'un des aspects les plus magiques d\'un mariage à Marrakech est la possibilité d\'offrir à vos invités des expériences culturelles inoubliables.',
           'De nombreux couples intègrent : musiciens Gnawa, danseurs traditionnels marocains, cérémonies de henné, arrivées à dos de chameau, dîners dans le désert, spectacles de feu, cérémonies du thé marocain, ateliers artisanaux, et musique orientale live.',
@@ -254,6 +263,7 @@ export const blogPostsDataES: Record<string, BlogPostData> = {
       },
       {
         heading: '¿Por qué elegir Marrakech para tu boda de destino?',
+        image: '/images/blog/blog-2.jpg',
         body: [
           'Marrakech ofrece algo verdaderamente único: un equilibrio perfecto entre lujo, autenticidad y experiencias inolvidables.',
           'Ya sea que imagines una boda en el desierto de Agafay iluminada con velas, una romántica ceremonia en un riad en la Medina, una boda elegante en una villa de lujo rodeada de palmeras, o una celebración de varios días en un palacio marroquí — Marrakech ofrece venues extraordinarios y atmósferas mágicas incomparables.',
@@ -281,6 +291,7 @@ export const blogPostsDataES: Record<string, BlogPostData> = {
       },
       {
         heading: 'Elegir el venue perfecto para tu boda en Marrakech',
+        image: '/images/blog/blog-3.jpg',
         body: [
           'El venue es la base de todo el diseño y experiencia de tu boda. Marrakech ofrece una increíble variedad de lugares — palacios de lujo, riads tradicionales, villas privadas, campamentos en el desierto, hoteles boutique, fincas con olivares, rooftops panorámicos, y jardines elegantes.',
           'Al elegir tu venue de boda en Marrakech, es importante considerar: capacidad de alojamiento, privacidad y exclusividad, accesibilidad, restricciones de sonido, posibilidades de catering, planes alternativos en caso de mal clima, flujo entre ceremonia y cena, posibilidades técnicas, y comodidad para los invitados.',
@@ -305,6 +316,7 @@ export const blogPostsDataES: Record<string, BlogPostData> = {
       },
       {
         heading: 'Trabaja con proveedores locales de confianza',
+        image: '/images/blog/blog-4.jpg',
         body: [
           'Construir el equipo de proveedores adecuado es esencial para una boda de destino exitosa en Marrakech. Un wedding planner local experimentado te dará acceso a fotógrafos de confianza, videógrafos, floristas, caterings, músicos en vivo, DJs, maquilladores, equipos de transporte, técnicos de iluminación y sonido, animadores, y especialistas en producción.',
           'La experiencia local es especialmente importante en Marruecos, ya que la logística, los tiempos, los estilos de comunicación y la ejecución técnica pueden variar considerablemente dependiendo del venue y los proveedores.',
@@ -313,6 +325,7 @@ export const blogPostsDataES: Record<string, BlogPostData> = {
       },
       {
         heading: 'Añade experiencias marroquíes a tu celebración',
+        image: '/images/blog/blog-5.jpg',
         body: [
           'Uno de los aspectos más mágicos de casarse en Marrakech es la oportunidad de crear experiencias culturales inolvidables para tus invitados.',
           'Muchas parejas incorporan: músicos Gnawa, bailarines tradicionales marroquíes, ceremonias de henna, entradas en camello, cenas en el desierto, espectáculos de fuego, ceremonias de té marroquí, talleres artesanales, o música oriental en vivo.',

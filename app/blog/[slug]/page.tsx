@@ -2,7 +2,10 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
-import { blogPostsData } from '@/data/blog-posts'
+import { cookies } from 'next/headers'
+import { blogPostsData, blogPostsDataFR, blogPostsDataES } from '@/data/blog-posts'
+
+export const dynamic = 'force-dynamic'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -10,6 +13,18 @@ interface Props {
 
 export async function generateStaticParams() {
   return Object.keys(blogPostsData).map((slug) => ({ slug }))
+}
+
+async function getLocalizedPost(slug: string) {
+  try {
+    const cookieStore = await cookies()
+    const locale = cookieStore.get('locale')?.value
+    if (locale === 'fr' && blogPostsDataFR[slug]) return blogPostsDataFR[slug]
+    if (locale === 'es' && blogPostsDataES[slug]) return blogPostsDataES[slug]
+  } catch {
+    // outside request context — fall through
+  }
+  return blogPostsData[slug]
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -24,8 +39,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params
-  const post = blogPostsData[slug]
+  const post = await getLocalizedPost(slug)
   if (!post) notFound()
+
+  const backLabel = post.slug === 'how-to-organize-your-wedding-in-marrakech'
+    ? post.category === 'Organisation de mariage' ? 'Retour au Journal'
+    : post.category === 'Planificación de bodas' ? 'Volver al Diario'
+    : 'Back to Journal'
+    : 'Back to Journal'
+
+  const ctaLabels = post.category === 'Organisation de mariage'
+    ? { eyebrow: 'Prêts à Commencer ?', title: 'Planifions Votre Mariage à Marrakech', body: 'Partagez votre vision — nous nous occupons de chaque détail pour créer une célébration vraiment inoubliable.', btn: 'Commencer la Planification' }
+    : post.category === 'Planificación de bodas'
+    ? { eyebrow: '¿Listos para Empezar?', title: 'Planifiquemos Tu Boda en Marrakech', body: 'Comparte tu visión — nos encargamos de cada detalle para crear una celebración verdaderamente inolvidable.', btn: 'Empezar a Planificar' }
+    : { eyebrow: 'Ready to Begin?', title: "Let's Plan Your Marrakech Wedding", body: "Share your vision with us — we'll take care of every detail to create a truly unforgettable celebration.", btn: 'Start Planning' }
 
   return (
     <article className="bg-ivory min-h-screen">
@@ -75,7 +102,7 @@ export default async function BlogPostPage({ params }: Props) {
           >
             <path d="M13 7H1M7 1L1 7l6 6" />
           </svg>
-          Back to Journal
+          {backLabel}
         </Link>
 
         {/* Gold divider */}
@@ -84,7 +111,7 @@ export default async function BlogPostPage({ params }: Props) {
         {/* Content sections */}
         <div className="prose-luxury">
           {post.sections.map((section, i) => (
-            <div key={i} className="mb-10">
+            <div key={i} className="mb-12">
               {section.heading && (
                 <h2
                   className="font-heading text-primary mb-5 leading-tight"
@@ -92,6 +119,17 @@ export default async function BlogPostPage({ params }: Props) {
                 >
                   {section.heading}
                 </h2>
+              )}
+              {section.image && (
+                <div className="relative w-full aspect-[16/9] overflow-hidden mb-6">
+                  <Image
+                    src={section.image}
+                    alt={section.heading ?? post.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 780px) 100vw, 780px"
+                  />
+                </div>
               )}
               {section.body.map((paragraph, j) => (
                 <p
@@ -123,16 +161,15 @@ export default async function BlogPostPage({ params }: Props) {
 
         {/* CTA */}
         <div className="bg-primary px-8 py-12 text-center">
-          <p className="section-eyebrow mb-4">Ready to Begin?</p>
+          <p className="section-eyebrow mb-4">{ctaLabels.eyebrow}</p>
           <h3 className="font-heading text-ivory text-2xl lg:text-3xl mb-4 leading-tight">
-            Let&apos;s Plan Your Marrakech Wedding
+            {ctaLabels.title}
           </h3>
           <p className="font-body text-beige/70 text-sm leading-relaxed mb-8 max-w-md mx-auto">
-            Share your vision with us — we&apos;ll take care of every detail to create a truly
-            unforgettable celebration.
+            {ctaLabels.body}
           </p>
           <Link href="/contact" className="btn-gold">
-            Start Planning
+            {ctaLabels.btn}
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M1 7h12M7 1l6 6-6 6" />
             </svg>

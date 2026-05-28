@@ -3,10 +3,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { featuredWorkContent } from '@/data/content'
+import { featuredWorkContent as defaultFeaturedWorkContent } from '@/data/content'
 import AnimatedText from '@/components/ui/AnimatedText'
 
-export default function FeaturedWork() {
+type FeaturedWorkContent = typeof defaultFeaturedWorkContent
+
+export default function FeaturedWork({ content }: { content?: FeaturedWorkContent }) {
+  const featuredWorkContent = content ?? defaultFeaturedWorkContent
   const ref = useRef<HTMLElement>(null)
   const inView = useInView(ref, { once: true, amount: 0.05 })
 

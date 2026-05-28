@@ -9,68 +9,9 @@ import CommitmentSection from '@/components/sections/CommitmentSection'
 import HowItWorks from '@/components/sections/HowItWorks'
 import Testimonials from '@/components/sections/Testimonials'
 import CTASection from '@/components/sections/CTASection'
-import {
-  heroContent,
-  statsContent,
-  weddingExtrasContent,
-  weddingTypesContent,
-  testimonialsContent,
-  ctaContent,
-} from '@/data/content'
+import { getContent } from '@/lib/get-content'
 
-const weddingHowItWorks = {
-  eyebrow: 'The Process',
-  title: 'How It Works',
-  steps: [
-    {
-      number: '01',
-      title: 'The Consultation',
-      description: 'We take the time to understand your vision, culture, guest experience, style, and priorities to begin designing a wedding that truly reflects your story.',
-    },
-    {
-      number: '02',
-      title: 'The Planning & Design',
-      description: 'Our team curates venues, suppliers, décor, experiences, logistics, and atmosphere. You receive structured planning, detailed timelines, and personalized guidance.',
-    },
-    {
-      number: '03',
-      title: 'Secure Your Date',
-      description: 'Your wedding dates and venues are officially secured once the agreed deposit is received. All details, payment schedules, and event scope are confirmed in writing.',
-    },
-    {
-      number: '04',
-      title: 'The Celebration',
-      description: 'From setup and supplier coordination to guest flow and on-site management, our team orchestrates every detail so you can fully enjoy an unforgettable experience.',
-    },
-  ],
-}
-
-const weddingCommitment = {
-  eyebrow: 'Our Commitment',
-  title: 'The Marrakech\nWedding Experience',
-  items: [
-    {
-      icon: '✦',
-      title: 'Bespoke Wedding Design',
-      description: 'Every wedding is thoughtfully curated around your culture, vision, guest experience, and personal story.',
-    },
-    {
-      icon: '◈',
-      title: 'Exceptional Venues',
-      description: 'Luxury palaces, private villas, riads, gardens, and desert settings carefully selected to match your celebration style.',
-    },
-    {
-      icon: '◎',
-      title: 'Full Wedding Coordination',
-      description: 'From venue sourcing and supplier management to logistics, production, and guest flow — every detail handled seamlessly.',
-    },
-    {
-      icon: '❋',
-      title: 'Luxury with Meaning',
-      description: 'Elegant multi-day celebrations blending Moroccan hospitality, refined aesthetics, emotion, and unforgettable experiences.',
-    },
-  ],
-}
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Luxury Destination Weddings in Marrakech',
@@ -78,7 +19,10 @@ export const metadata: Metadata = {
     'We plan luxury destination weddings in Marrakech — from multi-day Indian celebrations to intimate ceremonies, with exceptional venues, full coordination, and elegant execution.',
 }
 
-export default function WeddingPage() {
+export default async function WeddingPage() {
+  const data = await getContent()
+  const { heroContent, statsContent, weddingExtrasContent, weddingTypesContent, commitmentContent, howItWorksContent, testimonialsContent, ctaContent, aboutContent, marqueeItems } = data
+
   return (
     <>
       <HeroSection
@@ -89,14 +33,12 @@ export default function WeddingPage() {
         defaultService="Destination Wedding"
       />
 
-      <MarqueeSection />
+      <MarqueeSection items={marqueeItems} />
 
       <StatsSection stats={statsContent.wedding} />
 
-      {/* Wedding types grid */}
       <WeddingTypes {...weddingTypesContent} />
 
-      {/* Beyond wedding extras */}
       <ServiceGrid
         eyebrow={weddingExtrasContent.eyebrow}
         title={weddingExtrasContent.title}
@@ -105,11 +47,11 @@ export default function WeddingPage() {
         dark
       />
 
-      <AboutSection />
+      <AboutSection content={aboutContent} />
 
-      <CommitmentSection {...weddingCommitment} dark={false} />
+      <CommitmentSection {...commitmentContent.wedding} dark={false} />
 
-      <HowItWorks {...weddingHowItWorks} />
+      <HowItWorks {...howItWorksContent.wedding} />
 
       <Testimonials {...testimonialsContent.wedding} dark />
 

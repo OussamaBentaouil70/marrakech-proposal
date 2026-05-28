@@ -13,7 +13,7 @@ interface BlogPost {
   slug: string
 }
 
-export default function BlogGrid({ posts }: { posts: BlogPost[] }) {
+export default function BlogGrid({ posts, readLabel = 'Read Article' }: { posts: BlogPost[]; readLabel?: string }) {
   const ref = useRef<HTMLElement>(null)
   const inView = useInView(ref, { once: true, amount: 0.05 })
 
@@ -64,7 +64,7 @@ export default function BlogGrid({ posts }: { posts: BlogPost[] }) {
 
                 {/* Read more */}
                 <div className="flex items-center gap-2 text-gold">
-                  <span className="font-body text-xs tracking-[0.15em] uppercase">Read Article</span>
+                  <span className="font-body text-xs tracking-[0.15em] uppercase">{readLabel}</span>
                   <svg
                     width="14" height="14" viewBox="0 0 14 14"
                     fill="none" stroke="currentColor" strokeWidth="1.5"

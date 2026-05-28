@@ -9,15 +9,9 @@ import BeyondSection from '@/components/sections/BeyondSection'
 import HowItWorks from '@/components/sections/HowItWorks'
 import Testimonials from '@/components/sections/Testimonials'
 import CTASection from '@/components/sections/CTASection'
-import {
-  heroContent,
-  statsContent,
-  commitmentContent,
-  homeBeyondContent,
-  howItWorksContent,
-  testimonialsContent,
-  ctaContent,
-} from '@/data/content'
+import { getContent } from '@/lib/get-content'
+
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Marrakech Proposal – Luxury Wedding & Event Planning in Marrakech',
@@ -25,44 +19,37 @@ export const metadata: Metadata = {
     'From romantic proposals and intimate elopements to luxury destination weddings, we create elegant, emotional, and beautifully curated experiences in Marrakech, Morocco.',
 }
 
-export default function HomePage() {
+export default async function HomePage() {
+  const data = await getContent()
+  const { heroContent, statsContent, commitmentContent, homeBeyondContent, howItWorksContent, testimonialsContent, ctaContent, aboutContent, featuredWorkContent, marqueeItems } = data
+
   return (
     <>
-      {/* Hero */}
       <HeroSection
         {...heroContent.home}
         image="/images/home/luxury-proposal.png"
         variant="home"
       />
 
-      {/* Marquee ticker */}
-      <MarqueeSection />
+      <MarqueeSection items={marqueeItems} />
 
-      {/* Stats */}
       <StatsSection stats={statsContent.home} />
 
-      {/* Featured Work (dark bg) */}
-      <FeaturedWork />
+      <FeaturedWork content={featuredWorkContent} />
 
-      {/* About / Who We Are */}
-      <AboutSection />
+      <AboutSection content={aboutContent} />
 
-      {/* Commitment */}
       <CommitmentSection
         {...commitmentContent.home}
         dark={false}
       />
 
-      {/* Beyond Celebrations */}
       <BeyondSection {...homeBeyondContent} />
 
-      {/* How It Works */}
       <HowItWorks {...howItWorksContent.home} />
 
-      {/* Testimonials */}
       <Testimonials {...testimonialsContent.home} dark />
 
-      {/* CTA */}
       <CTASection
         {...ctaContent.home}
         backgroundImage="/images/home/destination-weddings.jpg"

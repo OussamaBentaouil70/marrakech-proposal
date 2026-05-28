@@ -1,7 +1,8 @@
 'use client'
 import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import AnimatedText from '@/components/ui/AnimatedText'
+import CardModal, { ModalItem } from '@/components/ui/CardModal'
 
 interface WeddingType {
   title: string
@@ -18,8 +19,10 @@ interface WeddingTypesProps {
 export default function WeddingTypes({ eyebrow, title, subtitle, types }: WeddingTypesProps) {
   const ref = useRef<HTMLElement>(null)
   const inView = useInView(ref, { once: true, amount: 0.05 })
+  const [selected, setSelected] = useState<ModalItem | null>(null)
 
   return (
+    <>
     <section ref={ref} className="py-24 lg:py-36 bg-ivory overflow-hidden">
       <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
         {/* Header */}
@@ -59,7 +62,8 @@ export default function WeddingTypes({ eyebrow, title, subtitle, types }: Weddin
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.9, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="bg-ivory p-10 group hover:bg-beige/40 transition-colors duration-500 cursor-default"
+              className="bg-ivory p-10 group hover:bg-beige/40 transition-colors duration-500 cursor-pointer"
+              onClick={() => setSelected({ title: type.title, description: type.description, index: i })}
             >
               {/* Number */}
               <p className="font-heading text-5xl text-gold/20 leading-none mb-6 group-hover:text-gold/40 transition-colors duration-500">
@@ -78,10 +82,21 @@ export default function WeddingTypes({ eyebrow, title, subtitle, types }: Weddin
               <p className="font-body text-sm text-secondary/70 leading-relaxed">
                 {type.description}
               </p>
+
+              {/* Explore hint */}
+              <p className="mt-6 font-body text-xs text-gold/0 group-hover:text-gold/70 transition-colors duration-300 tracking-widest uppercase flex items-center gap-1.5">
+                Explore
+                <svg width="10" height="10" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M1 7h12M7 1l6 6-6 6"/>
+                </svg>
+              </p>
             </motion.div>
           ))}
         </div>
       </div>
     </section>
+
+    <CardModal item={selected} onClose={() => setSelected(null)} reserveLabel="Reserve This Experience" />
+    </>
   )
 }

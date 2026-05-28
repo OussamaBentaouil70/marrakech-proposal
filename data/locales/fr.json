@@ -1,0 +1,787 @@
+{
+  "siteConfig": {
+    "name": "Marrakech Proposal",
+    "tagline": "Organisation de mariages et événements de luxe à Marrakech",
+    "description": "Des demandes en mariage romantiques aux elopements intimistes, en passant par les mariages de destination haut de gamme, nous prenons soin de chaque détail afin de créer des expériences élégantes, émotionnelles et parfaitement orchestrées à Marrakech.",
+    "email": "contact@marrakechproposal.com",
+    "whatsapp": "+212600000000",
+    "instagram": "@marrakechproposal"
+  },
+  "navLinks": [
+    {
+      "label": "Demandes en mariage",
+      "href": "/proposal"
+    },
+    {
+      "label": "Elopements intimistes",
+      "href": "/elopement"
+    },
+    {
+      "label": "Mariages",
+      "href": "/wedding"
+    },
+    {
+      "label": "Blog",
+      "href": "/blog"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact"
+    }
+  ],
+  "heroContent": {
+    "home": {
+      "eyebrow": "Marrakech, Maroc",
+      "title": "Chaque histoire d'amour\nmérite un décor\ninoubliable",
+      "subtitle": "Des demandes en mariage romantiques aux elopements intimistes, en passant par les mariages de destination haut de gamme — nous créons des célébrations profondément personnelles et élégamment orchestrées au cœur de Marrakech.",
+      "cta": "Commencer votre histoire",
+      "ctaSecondary": "Explorer nos réalisations"
+    },
+    "proposal": {
+      "eyebrow": "Demandes en mariage",
+      "title": "Le moment parfait\npour votre\n\"Oui\"",
+      "subtitle": "De la planification jusqu'au moment du \"Oui\", nous prenons soin de chaque détail afin de créer une demande en mariage élégante, émotionnelle et inoubliable à Marrakech. Photographie personnalisée, vidéo, décoration, scénographie romantique et coordination discrète — tout est soigneusement imaginé pour transformer votre demande en mariage en un souvenir magique dans l'une des plus belles destinations romantiques au monde.",
+      "cta": "Organiser votre demande"
+    },
+    "elopement": {
+      "eyebrow": "Elopements intimistes",
+      "title": "Une escapade\nintimiste\nconçue pour deux",
+      "subtitle": "De la sélection du lieu jusqu'aux derniers détails romantiques, nous créons des expériences d'elopement élégantes et soigneusement imaginées autour de votre histoire. Photographie, décoration, dîners privés, hébergements de luxe, expériences romantiques et coordination complète — chaque élément est pensé avec soin afin de rendre votre mariage intimiste à Marrakech intime, raffiné et inoubliable.",
+      "cta": "Organiser votre elopement"
+    },
+    "wedding": {
+      "eyebrow": "Mariages de destination",
+      "title": "Un mariage\nde luxe à\nMarrakech",
+      "subtitle": "Des célébrations multi-jours aux mises en scène les plus spectaculaires, nous prenons en charge chaque aspect de votre mariage de destination avec créativité, élégance et précision. Recherche de lieux, expérience invités, décoration, divertissement, restauration, logistique et coordination complète — chaque détail est soigneusement pensé pour donner vie à votre vision dans les plus beaux décors de Marrakech et du Maroc.",
+      "cta": "Organiser votre mariage"
+    }
+  },
+  "statsContent": {
+    "home": [
+      {
+        "number": "200+",
+        "label": "Expériences romantiques organisées"
+      },
+      {
+        "number": "11",
+        "label": "Années d'expertise"
+      },
+      {
+        "number": "30+",
+        "label": "Pays de destination"
+      },
+      {
+        "number": "100%",
+        "label": "Satisfaction clients"
+      }
+    ],
+    "proposal": [
+      {
+        "number": "120+",
+        "label": "Demandes en mariage organisées"
+      },
+      {
+        "number": "11",
+        "label": "Années d'expertise"
+      },
+      {
+        "number": "30+",
+        "label": "Pays de destination"
+      },
+      {
+        "number": "100%",
+        "label": "Satisfaction clients"
+      }
+    ],
+    "elopement": [
+      {
+        "number": "80+",
+        "label": "Mariages intimistes organisés"
+      },
+      {
+        "number": "11",
+        "label": "Années d'expertise"
+      },
+      {
+        "number": "30+",
+        "label": "Pays de destination"
+      },
+      {
+        "number": "100%",
+        "label": "Satisfaction clients"
+      }
+    ],
+    "wedding": [
+      {
+        "number": "50+",
+        "label": "Mariages organisés"
+      },
+      {
+        "number": "11",
+        "label": "Années d'expertise"
+      },
+      {
+        "number": "30+",
+        "label": "Pays de destination"
+      },
+      {
+        "number": "100%",
+        "label": "Satisfaction clients"
+      }
+    ]
+  },
+  "aboutContent": {
+    "eyebrow": "Qui se cache derrière ?",
+    "title": "Je suis Erica",
+    "subtitle": "Luxury Proposal & Wedding Planner, Marrakech",
+    "body": "Je suis Erica, wedding & proposal planner de luxe basée à Marrakech, passionnée par la création d'expériences élégantes et inoubliables inspirées par la beauté du Maroc.\n\nAvec plus de 10 ans d'expérience dans l'univers de l'événementiel haut de gamme, je me spécialise dans les demandes en mariage, elopements et célébrations intimistes conçus autour de la vision de chaque couple. Du désert d'Agafay aux riads privés et rooftops exclusifs, chaque détail est soigneusement imaginé pour créer des moments authentiques, émotionnels et intemporels.\n\nAvec mon équipe, nous combinons créativité, organisation et sens du détail afin de transformer chaque occasion spéciale en une expérience véritablement mémorable.",
+    "image": "/images/about/about-me.png",
+    "cta": "En savoir plus"
+  },
+  "commitmentContent": {
+    "home": {
+      "eyebrow": "Notre Engagement",
+      "title": "La promesse\nMarrakech Romance",
+      "items": [
+        {
+          "icon": "✦",
+          "title": "Expériences sur mesure",
+          "description": "Chaque demande en mariage, elopement ou mariage est imaginé autour de votre histoire, de votre vision et de l'atmosphère que vous souhaitez créer."
+        },
+        {
+          "icon": "◈",
+          "title": "Des lieux d'exception à Marrakech",
+          "description": "Des couchers de soleil dans le désert d'Agafay aux riads de luxe, rooftops, villas privées et palais, nous sélectionnons le cadre parfait pour chaque célébration."
+        },
+        {
+          "icon": "◎",
+          "title": "Organisation & coordination sans stress",
+          "description": "De la logistique au design, de l'expérience invités à l'exécution complète, chaque détail est géré avec précision et élégance."
+        },
+        {
+          "icon": "❋",
+          "title": "Émotion, élégance & authenticité",
+          "description": "Des célébrations raffinées inspirées par la beauté marocaine, l'intimité, l'hospitalité et des souvenirs inoubliables."
+        }
+      ]
+    },
+    "proposal": {
+      "eyebrow": "Notre Engagement",
+      "title": "La promesse\nMarrakech Proposal",
+      "items": [
+        {
+          "icon": "✦",
+          "title": "Design romantique sur mesure",
+          "description": "Chaque demande en mariage est imaginée autour de votre histoire d'amour, de votre personnalité, de votre style et de l'émotion que vous souhaitez créer."
+        },
+        {
+          "icon": "◈",
+          "title": "Lieux emblématiques à Marrakech",
+          "description": "Des couchers de soleil dans le désert d'Agafay aux riads privés, rooftops, jardins et lieux de luxe, nous sélectionnons le cadre parfait pour votre moment."
+        },
+        {
+          "icon": "◎",
+          "title": "Organisation discrète",
+          "description": "Nous gérons la mise en scène, le timing, la logistique, les prestataires et tous les détails de la surprise afin que tout paraisse naturel et sans effort."
+        },
+        {
+          "icon": "❋",
+          "title": "Émotion & élégance",
+          "description": "Des expériences romantiques, raffinées et inoubliables conçues avec la beauté, la chaleur et l'âme marocaines."
+        }
+      ]
+    },
+    "elopement": {
+      "eyebrow": "Notre Engagement",
+      "title": "L'expérience\nelopement à Marrakech",
+      "items": [
+        {
+          "icon": "✦",
+          "title": "Intimité par design",
+          "description": "Des elopements soigneusement imaginés pour être personnels, émotionnels, élégants et profondément significatifs."
+        },
+        {
+          "icon": "◈",
+          "title": "Lieux romantiques & secrets",
+          "description": "Riads privés, camps du désert, rooftops, jardins et paysages à couper le souffle, sélectionnés pour des moments inoubliables."
+        },
+        {
+          "icon": "◎",
+          "title": "Une escapade sans stress",
+          "description": "Hébergement, photographie, décoration, dîners, logistique et planning — tout est organisé de manière fluide et transparente pour vous."
+        },
+        {
+          "icon": "❋",
+          "title": "Authenticité & intemporalité",
+          "description": "Une expérience marocaine raffinée mêlant romance, intimité et luxe naturel."
+        }
+      ]
+    },
+    "wedding": {
+      "eyebrow": "Notre Engagement",
+      "title": "L'expérience mariage\nà Marrakech",
+      "items": [
+        {
+          "icon": "✦",
+          "title": "Design de mariage sur mesure",
+          "description": "Chaque mariage est soigneusement imaginé autour de votre culture, de votre vision, de l'expérience invités et de votre histoire personnelle."
+        },
+        {
+          "icon": "◈",
+          "title": "Des lieux d'exception",
+          "description": "Palais de luxe, villas privées, riads, jardins et décors désertiques soigneusement sélectionnés pour sublimer votre célébration."
+        },
+        {
+          "icon": "◎",
+          "title": "Coordination complète du mariage",
+          "description": "De la recherche de lieux à la gestion des prestataires, en passant par la logistique, la production et le flux invités — chaque détail géré avec soin."
+        },
+        {
+          "icon": "❋",
+          "title": "Luxe & sens",
+          "description": "Des célébrations multi-jours alliant hospitalité marocaine, esthétique raffinée, émotion et expériences inoubliables."
+        }
+      ]
+    }
+  },
+  "featuredWorkContent": {
+    "eyebrow": "Réalisations Signature",
+    "title": "Célébrations romantiques\nà Marrakech & au Maroc",
+    "subtitle": "Du premier \"oui\" jusqu'au jour du mariage, nous créons des expériences inoubliables pour les couples qui souhaitent vivre une histoire d'amour élégante, personnelle et profondément mémorable.",
+    "categories": [
+      {
+        "title": "Demandes en mariage de luxe",
+        "subtitle": "Des moments magiques imaginés autour de votre histoire d'amour.",
+        "description": "Des mises en scène romantiques dans le désert d'Agafay aux rooftops privés, riads exclusifs, expériences au bord de la piscine, vols en montgolfière et concepts sur mesure, nous créons des demandes en mariage à Marrakech à la fois intimes, émotionnelles et intemporelles.",
+        "image": "/images/featured/luxury-proposals.png",
+        "href": "/proposal",
+        "tag": "Demandes"
+      },
+      {
+        "title": "Elopements intimistes",
+        "subtitle": "Une célébration authentique à deux — ou entourés de vos proches les plus proches.",
+        "description": "Pour les couples rêvant d'une escapade romantique, nous concevons des elopements intimistes à Marrakech et au Maroc avec lieux d'exception, décoration raffinée, photographie, dîners privés et coordination complète du début à la fin.",
+        "image": "/images/featured/intimate-elopements.png",
+        "href": "/elopement",
+        "tag": "Elopements"
+      },
+      {
+        "title": "Mariages de destination",
+        "subtitle": "Des expériences de mariage multi-jours dans les plus beaux décors du Maroc.",
+        "description": "Des riads de luxe aux villas privées, palais, jardins, camps dans le désert et week-ends de mariage complets, nous organisons des mariages de destination à Marrakech mêlant élégance, culture, hospitalité et exécution irréprochable.",
+        "image": "/images/featured/destination-weddings.png",
+        "href": "/wedding",
+        "tag": "Mariages"
+      }
+    ]
+  },
+  "proposalTypesContent": {
+    "eyebrow": "Au-delà de la demande en mariage",
+    "title": "Des expériences romantiques\nau-delà du \"Oui\"",
+    "subtitle": "Demandes en mariage de luxe, mariages intimistes, mariages de destination, dîners romantiques et célébrations sur mesure — chaque expérience est conçue pour créer des souvenirs inoubliables à Marrakech.",
+    "types": [
+      {
+        "title": "Demande dans le désert",
+        "description": "Une expérience magique au coucher du soleil dans le désert d'Agafay — bougies, paysages spectaculaires et ambiance romantique pour un \"Oui\" inoubliable.",
+        "features": [
+          "Mise en scène désert luxe & décoration",
+          "Bougies, fleurs & éclairage d'ambiance",
+          "Coordination & organisation surprise"
+        ],
+        "image": "/images/proposals/desert-proposal.png"
+      },
+      {
+        "title": "Demande sur rooftop",
+        "description": "Une demande intime au-dessus des rooftops de Marrakech avec vue panoramique, décoration raffinée et atmosphère romantique sous les étoiles.",
+        "features": [
+          "Sélection de rooftop privé",
+          "Décoration florale & ambiance aux bougies",
+          "Installation complète & coordination discrète"
+        ],
+        "image": "/images/proposals/rooftop-proposal.png"
+      },
+      {
+        "title": "Demande au bord de la piscine",
+        "description": "Une demande élégante au bord de la piscine dans une villa de luxe ou un riad mêlant lumière douce, décoration romantique et élégance intemporelle.",
+        "features": [
+          "Sélection de villa/riad de luxe",
+          "Décoration poolside & mise en scène florale",
+          "Planification & coordination sur place"
+        ],
+        "image": "/images/proposals/poolside-proposal.png"
+      },
+      {
+        "title": "Demande en montgolfière",
+        "description": "Une expérience unique au lever du soleil au-dessus des paysages de Marrakech et des montagnes de l'Atlas.",
+        "features": [
+          "Coordination de l'expérience montgolfière",
+          "Mise en scène romantique & détails célébration",
+          "Transport & assistance surprise"
+        ],
+        "image": "/images/proposals/balloon-proposal.png"
+      },
+      {
+        "title": "Demande sur la plage",
+        "description": "Une demande romantique au bord de l'océan avec coucher de soleil, décoration élégante et ambiance intime.",
+        "features": [
+          "Installation plage & décoration romantique",
+          "Ambiance sunset & décoration florale",
+          "Organisation & coordination complète"
+        ],
+        "image": "/images/proposals/beach-proposal.png"
+      },
+      {
+        "title": "Demande sur mesure",
+        "description": "Une expérience entièrement personnalisée imaginée autour de votre histoire et de votre lieu de rêve à Marrakech.",
+        "features": [
+          "Création de concept sur mesure",
+          "Recherche de lieu & direction artistique",
+          "Organisation complète & logistique"
+        ],
+        "image": "/images/proposals/custom-proposal.png"
+      }
+    ]
+  },
+  "elopementTypesContent": {
+    "eyebrow": "Au-delà du mariage intimiste",
+    "title": "Des expériences élégantes\nau-delà de la cérémonie",
+    "subtitle": "Des escapades romantiques aux expériences immersives à Marrakech, chaque moment est soigneusement imaginé afin de prolonger la magie de votre elopement bien au-delà du jour J.",
+    "types": [
+      {
+        "title": "Dîner privé romantique",
+        "description": "Un dîner intime aux chandelles dans un riad de luxe, un rooftop, une villa privée ou un décor désertique conçu pour des moments authentiques et inoubliables.",
+        "features": [
+          "Sélection de lieu privé",
+          "Décoration romantique & éclairage d'ambiance",
+          "Coordination du dîner & design de l'expérience"
+        ],
+        "image": "/images/elopements/private-dinner.png"
+      },
+      {
+        "title": "Expérience désert Agafay",
+        "description": "Une escapade magique dans le désert avec coucher de soleil, balades à dos de chameau, camps de luxe et atmosphère immersive pour les couples en quête d'aventure et de romance.",
+        "features": [
+          "Organisation de l'expérience désert",
+          "Transport & logistique",
+          "Dîner sunset & coordination des activités"
+        ],
+        "image": "/images/elopements/agafay-desert.png"
+      },
+      {
+        "title": "Retraite spa & bien-être",
+        "description": "Une expérience bien-être raffinée pensée pour la détente et la connexion à travers hammam, massages, soins et expériences spa privées.",
+        "features": [
+          "Sélection spa & hammam de luxe",
+          "Coordination bien-être",
+          "Expériences relaxation pour couples"
+        ],
+        "image": "/images/elopements/spa-wellness.png"
+      },
+      {
+        "title": "Visite guidée Marrakech & souks",
+        "description": "Une immersion culturelle à travers la Médina, les souks, les lieux emblématiques et les trésors cachés de Marrakech accompagnés d'un guide privé.",
+        "features": [
+          "Expérience guidée privée",
+          "Découverte culturelle de Marrakech",
+          "Itinéraire flexible & coordination"
+        ],
+        "image": "/images/elopements/guided-tour.png"
+      }
+    ]
+  },
+  "weddingExtrasContent": {
+    "eyebrow": "Au-delà du mariage",
+    "title": "Des expériences élégantes\nau-delà du jour J",
+    "subtitle": "Des expériences multi-jours soigneusement imaginées pour créer des souvenirs inoubliables pour vous et vos invités à Marrakech.",
+    "extras": [
+      {
+        "title": "Welcome Dinner",
+        "description": "Le premier rassemblement donne le ton de la célébration — dîner raffiné, accueil chaleureux et atmosphère élégamment orchestrée pour recevoir vos invités.",
+        "features": [
+          "Sélection du lieu & du catering",
+          "Art de la table & éclairage",
+          "Coordination & expérience invités"
+        ],
+        "image": "/images/weddings/welcome-dinner.png"
+      },
+      {
+        "title": "Mehndi / Sangeet Night",
+        "description": "Une soirée vibrante mêlant musique, danse, couleurs, divertissement et ambiance immersive inspirée des plus belles traditions indiennes.",
+        "features": [
+          "Divertissement & production",
+          "Design lumière & scénographie",
+          "Timeline & coordination"
+        ],
+        "image": "/images/weddings/mehndi-sangeet.png"
+      },
+      {
+        "title": "Pool Party ou Brunch",
+        "description": "Une expérience élégante et détendue après le mariage, réunissant vos invités autour du soleil, de la musique, d'une gastronomie raffinée et d'une ambiance poolside chic.",
+        "features": [
+          "Sélection du lieu avec piscine",
+          "Coordination food & beverage",
+          "Design d'ambiance & décoration"
+        ],
+        "image": "/images/weddings/pool-party.png"
+      },
+      {
+        "title": "Expérience désert pour les invités",
+        "description": "Une expérience inoubliable dans le désert d'Agafay avec couchers de soleil, camps de luxe, animations, dîner et immersion dans l'atmosphère marocaine.",
+        "features": [
+          "Logistique désert & transferts",
+          "Activités & animations",
+          "Dîner & coordination invités"
+        ],
+        "image": "/images/weddings/desert-experience.png"
+      }
+    ]
+  },
+  "homeBeyondContent": {
+    "eyebrow": "Au-delà des célébrations",
+    "title": "Des expériences créées\navec intention",
+    "subtitle": "Demandes en mariage de luxe, elopements intimistes, mariages de destination et dîners romantiques — chaque expérience est soigneusement imaginée pour créer des souvenirs inoubliables à Marrakech.",
+    "items": [
+      {
+        "title": "Demandes en mariage de luxe",
+        "description": "Des moments magiques imaginés autour de votre histoire d'amour",
+        "image": "/images/home/luxury-proposal.png",
+        "href": "/proposal"
+      },
+      {
+        "title": "Elopements intimistes",
+        "description": "Une célébration authentique conçue à deux",
+        "image": "/images/home/intimate-elopement.png",
+        "href": "/elopement"
+      },
+      {
+        "title": "Mariages de destination",
+        "description": "Des expériences multi-jours dans les plus beaux décors du Maroc",
+        "image": "/images/home/destination-weddings.jpg",
+        "href": "/wedding"
+      }
+    ]
+  },
+  "howItWorksContent": {
+    "home": {
+      "eyebrow": "Le processus",
+      "title": "Comment ça fonctionne",
+      "steps": [
+        {
+          "number": "01",
+          "title": "La consultation",
+          "description": "Nous commençons par comprendre votre vision, votre histoire, vos attentes et l'atmosphère souhaitée afin de créer une expérience personnelle et significative."
+        },
+        {
+          "number": "02",
+          "title": "La planification créative",
+          "description": "Notre équipe imagine et coordonne chaque aspect de votre événement — lieux, décoration, prestataires, logistique, expérience invités et déroulement — avec élégance et attention au détail."
+        },
+        {
+          "number": "03",
+          "title": "La confirmation",
+          "description": "Les dates et lieux sont réservés une fois l'acompte reçu. Tous les détails d'organisation et les échéanciers de paiement sont ensuite confirmés de manière claire et professionnelle."
+        },
+        {
+          "number": "04",
+          "title": "L'expérience",
+          "description": "Qu'il s'agisse d'une demande en mariage, d'un elopement intimiste ou d'un mariage de luxe, nous gérons toute l'organisation en coulisses afin que vous puissiez profiter pleinement de chaque moment inoubliable à Marrakech."
+        }
+      ]
+    },
+    "proposal": {
+      "eyebrow": "Le processus",
+      "title": "Comment ça fonctionne",
+      "steps": [
+        {
+          "number": "01",
+          "title": "La consultation",
+          "description": "Nous apprenons à connaître votre histoire et votre vision afin de créer une demande en mariage entièrement personnalisée avec tous les détails qui rendront ce moment unique."
+        },
+        {
+          "number": "02",
+          "title": "Le design & la planification",
+          "description": "Notre équipe commence l'organisation de votre demande. Nous vous envoyons un déroulé détaillé avec toutes les informations nécessaires ainsi que des conseils pour préparer ce moment si important."
+        },
+        {
+          "number": "03",
+          "title": "La confirmation",
+          "description": "Votre date est confirmée une fois l'acompte de 50% reçu. Nous ne réservons aucune date sans dépôt. Le périmètre, le planning et les modalités de paiement sont confirmés clairement par écrit."
+        },
+        {
+          "number": "04",
+          "title": "La demande",
+          "description": "Le jour J, nous coordonnons le lieu et tous les prestataires afin de créer une mise en scène magique que votre partenaire n'oubliera jamais. Vous arrivez, vous faites votre demande… puis profitez pleinement de cette soirée inoubliable."
+        }
+      ]
+    },
+    "elopement": {
+      "eyebrow": "Le processus",
+      "title": "Comment ça fonctionne",
+      "steps": [
+        {
+          "number": "01",
+          "title": "L'appel découverte",
+          "description": "Nous apprenons à connaître votre histoire, votre vision de voyage, l'atmosphère souhaitée et le type d'expérience intime que vous souhaitez créer ensemble à Marrakech."
+        },
+        {
+          "number": "02",
+          "title": "La conception de l'expérience",
+          "description": "Des lieux romantiques et de la photographie aux dîners, au décor, à l'hébergement et aux activités — nous créons une expérience d'elopement personnalisée autour de votre vision."
+        },
+        {
+          "number": "03",
+          "title": "La confirmation",
+          "description": "Vos dates et lieux sont confirmés une fois l'acompte reçu. Nous finalisons ensuite ensemble le planning, la logistique et tous les détails de votre expérience."
+        },
+        {
+          "number": "04",
+          "title": "L'expérience elopement",
+          "description": "Le jour J, nous coordonnons chaque détail en coulisses pour que vous puissiez vous concentrer pleinement sur le moment présent et créer des souvenirs inoubliables."
+        }
+      ]
+    },
+    "wedding": {
+      "eyebrow": "Le processus",
+      "title": "Comment ça fonctionne",
+      "steps": [
+        {
+          "number": "01",
+          "title": "La consultation initiale",
+          "description": "Nous prenons le temps de comprendre votre vision, votre culture, l'expérience souhaitée pour vos invités, votre style et vos priorités afin de concevoir un mariage qui reflète véritablement votre histoire."
+        },
+        {
+          "number": "02",
+          "title": "La planification & le design",
+          "description": "Notre équipe sélectionne lieux, prestataires, décoration, expériences, logistique et ambiance. Vous recevez une organisation structurée, des plannings détaillés et un accompagnement personnalisé."
+        },
+        {
+          "number": "03",
+          "title": "La confirmation",
+          "description": "Les dates et lieux de votre mariage sont officiellement réservés une fois l'acompte convenu reçu. Tous les détails, échéanciers et périmètre de l'événement sont confirmés par écrit."
+        },
+        {
+          "number": "04",
+          "title": "La célébration",
+          "description": "De la mise en place et la coordination des prestataires à la gestion du flux invités sur place, notre équipe orchestre chaque détail pour que vous puissiez profiter pleinement d'une expérience inoubliable."
+        }
+      ]
+    }
+  },
+  "testimonialsContent": {
+    "home": {
+      "eyebrow": "Témoignages Clients",
+      "title": "Des histoires d'amour\nsublimées avec élégance",
+      "testimonials": [
+        {
+          "quote": "Du premier échange jusqu'à la célébration finale, l'équipe a rendu toute l'expérience fluide et incroyablement spéciale. Leur créativité, leur organisation et leur attention aux détails sont exceptionnelles.",
+          "author": "Sarah & Karim",
+          "type": "Mariage de destination"
+        },
+        {
+          "quote": "Nos invités parlent encore aujourd'hui de cette expérience incroyable. Chaque événement, chaque dîner, chaque instant était magnifiquement pensé et parfaitement coordonné.",
+          "author": "Priya & Arjun",
+          "type": "Mariage de luxe"
+        },
+        {
+          "quote": "Qu'il s'agisse de la demande en mariage, de l'organisation de notre elopement ou du mariage lui-même, ils ont créé une atmosphère émotionnelle, élégante et profondément personnelle.",
+          "author": "Camille & Thomas",
+          "type": "Organisation complète"
+        }
+      ]
+    },
+    "proposal": {
+      "eyebrow": "Témoignages Clients",
+      "title": "Les mots de\nnos couples",
+      "testimonials": [
+        {
+          "quote": "Marrakech Proposal a été parfait du début à la fin : communication, présentation et design. La demande en mariage surprise de ma fiancée à Marrakech était un rêve pour elle, et ce rêve est devenu réalité. Merci à Erica, Mohamed et toute l'équipe pour cette perfection.",
+          "author": "Nathaniel",
+          "type": "Demande dans le désert"
+        },
+        {
+          "quote": "Je n'arrive toujours pas à croire à quel point ma demande était incroyable, tout cela grâce à Marrakech Proposal. Ils ont pris soin de chaque détail et le résultat dépassait tout ce que j'imaginais.",
+          "author": "Alejandro",
+          "type": "Demande sur rooftop"
+        },
+        {
+          "quote": "Je voulais faire ma demande à Marrakech mais j'étais complètement perdu jusqu'à ce que je découvre Marrakech Proposal. Cette équipe incroyable m'a accompagné de A à Z et tout s'est déroulé de manière fluide et parfaite. Je les recommande à tous ceux qui souhaitent faire leur demande à Marrakech.",
+          "author": "Julien",
+          "type": "Demande sur mesure"
+        }
+      ]
+    },
+    "elopement": {
+      "eyebrow": "Témoignages Clients",
+      "title": "Des célébrations intimes\n& des souvenirs intemporels",
+      "testimonials": [
+        {
+          "quote": "Notre elopement à Marrakech ressemblait à un véritable film romantique. Chaque détail avait été soigneusement pensé — le lieu, l'atmosphère, le dîner, la photographie — tout était absolument parfait.",
+          "author": "Emma & Lucas",
+          "type": "Elopement de destination"
+        },
+        {
+          "quote": "Nous voulions quelque chose d'intime, élégant et émotionnel, et l'équipe a dépassé toutes nos attentes. Marrakech fera désormais partie de notre histoire d'amour pour toujours.",
+          "author": "Sofia & Daniel",
+          "type": "Elopement multi-jours"
+        },
+        {
+          "quote": "Dès le premier appel, nous nous sommes sentis compris. Ils ont transformé notre vision en une magnifique expérience d'elopement sur plusieurs jours que nous n'oublierons jamais.",
+          "author": "Olivia & Matteo",
+          "type": "Elopement sur mesure"
+        }
+      ]
+    },
+    "wedding": {
+      "eyebrow": "Témoignages Clients",
+      "title": "Des célébrations\nau-delà des attentes",
+      "testimonials": [
+        {
+          "quote": "Notre mariage à Marrakech était encore plus beau que tout ce que nous avions imaginé. Chaque événement était élégant, émotionnel et parfaitement organisé. L'équipe a créé une expérience inoubliable pour nous comme pour chacun de nos invités.",
+          "author": "Priya & Arjun",
+          "type": "Mariage indien"
+        },
+        {
+          "quote": "De la sélection du lieu jusqu'à la dernière soirée, tout a été géré avec un professionnalisme remarquable et une attention exceptionnelle aux détails. Nous nous sommes sentis accompagnés tout au long du processus.",
+          "author": "Chloe & Matthew",
+          "type": "Mariage de destination"
+        },
+        {
+          "quote": "Organiser un mariage à destination depuis l'étranger semblait compliqué au départ, mais l'équipe a rendu toute l'expérience fluide, créative et agréable. Marrakech est devenue le décor parfait pour la plus belle semaine de notre vie.",
+          "author": "Camila & David",
+          "type": "Mariage de luxe"
+        },
+        {
+          "quote": "Notre célébration multi-jours a été magique du début à la fin. L'atmosphère, la décoration, la logistique, l'expérience invités et la coordination ont dépassé toutes nos attentes.",
+          "author": "Tara & Michael",
+          "type": "Mariage multi-jours"
+        }
+      ]
+    }
+  },
+  "ctaContent": {
+    "home": {
+      "eyebrow": "Prêts à commencer ?",
+      "title": "Créons ensemble quelque chose\nde véritablement inoubliable",
+      "subtitle": "Qu'il s'agisse d'une demande en mariage, d'un elopement intimiste ou d'un mariage de destination haut de gamme, partagez votre vision avec nous — nous donnerons vie à chaque détail à Marrakech et au Maroc.",
+      "cta": "Commencer à planifier",
+      "ctaSecondary": "Nous écrire sur WhatsApp"
+    },
+    "proposal": {
+      "eyebrow": "Prêts à organiser votre demande ?",
+      "title": "Créons ensemble\nun \"Oui\" inoubliable",
+      "subtitle": "Partagez votre vision avec nous — nous imaginerons chaque détail romantique pour créer une expérience magique et inoubliable à Marrakech.",
+      "cta": "Organiser ma demande"
+    },
+    "elopement": {
+      "eyebrow": "Prêts à partir ensemble ?",
+      "title": "Créons ensemble une escapade\ninoubliable",
+      "subtitle": "Partagez votre vision avec nous — nous imaginerons chaque détail romantique afin de créer une expérience élégante, intime et inoubliable à Marrakech.",
+      "cta": "Organiser mon elopement"
+    },
+    "wedding": {
+      "eyebrow": "Prêts à célébrer votre histoire ?",
+      "title": "Créons ensemble\nun mariage inoubliable",
+      "subtitle": "Partagez votre vision avec nous — nous imaginerons et coordonnerons chaque détail de votre mariage de luxe à Marrakech.",
+      "cta": "Organiser mon mariage"
+    }
+  },
+  "weddingTypesContent": {
+    "eyebrow": "Réalisations Signature",
+    "title": "Mariages de destination\nà Marrakech",
+    "subtitle": "Découvrez des expériences de mariage signature à Marrakech, pensées pour les couples recherchant élégance, culture et célébrations inoubliables.",
+    "types": [
+      {
+        "title": "Luxury Destination Wedding",
+        "description": "Des mariages multi-jours à Marrakech avec lieux d'exception, décoration raffinée, hospitalité haut de gamme et expérience invités parfaitement orchestrée."
+      },
+      {
+        "title": "Kerala Wedding",
+        "description": "Un mariage sud-indien vibrant à Marrakech mêlant traditions du Kerala, décoration florale, cuisine authentique et lieux de célébration luxueux."
+      },
+      {
+        "title": "Indian Wedding",
+        "description": "Des mariages indiens colorés et immersifs avec Mehndi, Haldi, Sangeet, Baraat, cérémonie, réception et coordination complète haut de gamme."
+      },
+      {
+        "title": "Jewish Wedding",
+        "description": "Des mariages juifs élégants à Marrakech avec cérémonie sous la houppa, décoration raffinée, options de catering casher et sélection de lieux d'exception."
+      },
+      {
+        "title": "Afro-Luxury Wedding",
+        "description": "Une célébration vibrante de la culture africaine, de la musique, de la mode, des traditions et de l'hospitalité de luxe à Marrakech."
+      },
+      {
+        "title": "Custom Wedding Experience",
+        "description": "Une expérience de mariage entièrement personnalisée imaginée autour de votre culture, de votre vision, de votre atmosphère et de l'expérience souhaitée pour vos invités."
+      }
+    ]
+  },
+  "blogContent": {
+    "eyebrow": "Du Journal",
+    "title": "Histoires, Inspiration\n& Guides de Planification",
+    "subtitle": "Découvrez notre collection de vrais mariages, elopements, demandes en mariage et guides de planification pour votre célébration à Marrakech.",
+    "readLabel": "Lire l'Article",
+    "posts": [
+      {
+        "title": "Comment Organiser son Mariage à Marrakech ?",
+        "excerpt": "Un guide complet pour organiser le mariage de vos rêves dans la ville magique de Marrakech — du choix du lieu à la logistique des invités.",
+        "category": "Organisation de mariage",
+        "readTime": "8 min de lecture",
+        "image": "/images/blog/blog-1.jpg",
+        "slug": "how-to-organize-your-wedding-in-marrakech"
+      }
+    ]
+  },
+  "marqueeItems": [
+    "Demandes en mariage de luxe",
+    "Elopements intimistes",
+    "Mariages de destination",
+    "Expériences désert",
+    "Célébrations en rooftop",
+    "Dîners privés",
+    "Montgolfières",
+    "Retraites spa"
+  ],
+  "contactContent": {
+    "hero": {
+      "eyebrow": "Contactez-Nous",
+      "title": "Commençons Votre\nHistoire à Marrakech",
+      "subtitle": "Que vous rêviez d'une demande en mariage intime, d'un elopement romantique ou d'un mariage de luxe à destination, nous serions ravis d'entendre votre vision. Partagez votre histoire — nous répondons sous 24 heures."
+    },
+    "form": {
+      "leftTitle": "Démarrez Votre",
+      "leftTitleEm": "Voyage",
+      "leftSubtitle": "Remplissez le formulaire et notre équipe vous répondra sous 24 heures avec une réponse personnalisée et une offre de consultation initiale.",
+      "labels": {
+        "email": "Email",
+        "whatsapp": "WhatsApp",
+        "whatsappCta": "Écrivez-nous directement",
+        "location": "Localisation",
+        "locationValue": "Marrakech, Maroc",
+        "responseTime": "Délai de réponse",
+        "responseTimeValue": "Sous 24 heures"
+      },
+      "fields": {
+        "name": "Votre Nom",
+        "email": "Votre Email",
+        "serviceSelect": "Type de Célébration",
+        "date": "Date Estimée",
+        "guests": "Nombre d'Invités",
+        "message": "Parlez-nous de Votre Vision",
+        "submit": "Envoyer Votre Vision"
+      },
+      "serviceOptions": [
+        "Demande en Mariage",
+        "Elopement Intime",
+        "Mariage Destination",
+        "Célébration Multi-Jours",
+        "Autre"
+      ],
+      "privacy": "Nous respectons votre vie privée et ne partagerons jamais vos informations.",
+      "success": {
+        "title": "Merci",
+        "message": "Nous avons bien reçu votre message et vous contacterons sous 24 heures. Nous sommes impatients d'en savoir plus sur votre vision !"
+      }
+    }
+  }
+}

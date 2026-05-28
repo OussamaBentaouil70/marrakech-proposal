@@ -1,21 +1,24 @@
 'use client'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { siteConfig } from '@/data/content'
+import enData from '@/data/locales/en.json'
 
-const serviceOptions = [
-  'Marriage Proposal',
-  'Intimate Elopement',
-  'Destination Wedding',
-  'Multi-Day Celebration',
-  'Other',
-]
+type FormContent = typeof enData.contactContent.form
 
-export default function ContactForm() {
+interface ContactFormProps {
+  content?: FormContent
+}
+
+export default function ContactForm({ content }: ContactFormProps) {
+  const c = content ?? enData.contactContent.form
+  const router = useRouter()
   const ref = useRef<HTMLElement>(null)
   const inView = useInView(ref, { once: true, amount: 0.05 })
-  const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -29,9 +32,22 @@ export default function ContactForm() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
+    setLoading(true)
+    setError('')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, formType: 'contact' }),
+      })
+      if (!res.ok) throw new Error('Failed')
+      router.push('/thank-you')
+    } catch {
+      setError('Something went wrong. Please try again or contact us via WhatsApp.')
+      setLoading(false)
+    }
   }
 
   return (
@@ -46,42 +62,41 @@ export default function ContactForm() {
           >
             <div className="mb-12">
               <h2 className="font-heading text-primary text-4xl lg:text-5xl leading-tight mb-6">
-                Start Your<br /><em>Journey</em>
+                {c.leftTitle}<br /><em>{c.leftTitleEm}</em>
               </h2>
               <p className="font-body text-sm text-secondary/70 leading-relaxed max-w-sm">
-                Fill in the form and our team will get back to you within 24 hours with a personalized response and initial consultation offer.
+                {c.leftSubtitle}
               </p>
             </div>
 
             <div className="space-y-8">
-              {/* Info blocks */}
               <div>
-                <p className="section-eyebrow mb-2">Email</p>
+                <p className="section-eyebrow mb-2">{c.labels.email}</p>
                 <a href={`mailto:${siteConfig.email}`} className="font-body text-sm text-primary hover:text-gold transition-colors duration-200">
                   {siteConfig.email}
                 </a>
               </div>
               <div className="gold-divider" />
               <div>
-                <p className="section-eyebrow mb-2">WhatsApp</p>
+                <p className="section-eyebrow mb-2">{c.labels.whatsapp}</p>
                 <a
                   href={`https://wa.me/${siteConfig.whatsapp}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-body text-sm text-primary hover:text-gold transition-colors duration-200"
                 >
-                  Message us directly
+                  {c.labels.whatsappCta}
                 </a>
               </div>
               <div className="gold-divider" />
               <div>
-                <p className="section-eyebrow mb-2">Location</p>
-                <p className="font-body text-sm text-secondary/70">Marrakech, Morocco</p>
+                <p className="section-eyebrow mb-2">{c.labels.location}</p>
+                <p className="font-body text-sm text-secondary/70">{c.labels.locationValue}</p>
               </div>
               <div className="gold-divider" />
               <div>
-                <p className="section-eyebrow mb-2">Response Time</p>
-                <p className="font-body text-sm text-secondary/70">Within 24 hours</p>
+                <p className="section-eyebrow mb-2">{c.labels.responseTime}</p>
+                <p className="font-body text-sm text-secondary/70">{c.labels.responseTimeValue}</p>
               </div>
             </div>
           </motion.div>
@@ -92,23 +107,14 @@ export default function ContactForm() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            {submitted ? (
-              <div className="flex flex-col items-center justify-center h-full text-center py-20">
-                <p className="text-gold text-4xl mb-4">✦</p>
-                <h3 className="font-heading text-primary text-3xl mb-4">Thank You</h3>
-                <p className="font-body text-sm text-secondary/70 max-w-sm leading-relaxed">
-                  We've received your message and will be in touch within 24 hours. We're excited to learn more about your vision!
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-8">
+            <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
                     <input
                       name="name"
                       value={form.name}
                       onChange={handleChange}
-                      placeholder="Your Name"
+                      placeholder={c.fields.name}
                       required
                       className="luxury-input"
                     />
@@ -119,7 +125,7 @@ export default function ContactForm() {
                       type="email"
                       value={form.email}
                       onChange={handleChange}
-                      placeholder="Your Email"
+                      placeholder={c.fields.email}
                       required
                       className="luxury-input"
                     />
@@ -134,8 +140,8 @@ export default function ContactForm() {
                     required
                     className="luxury-input appearance-none cursor-pointer"
                   >
-                    <option value="" disabled>Type of Celebration</option>
-                    {serviceOptions.map((opt) => (
+                    <option value="" disabled>{c.fields.serviceSelect}</option>
+                    {c.serviceOptions.map((opt) => (
                       <option key={opt} value={opt}>{opt}</option>
                     ))}
                   </select>
@@ -147,7 +153,7 @@ export default function ContactForm() {
                       name="date"
                       value={form.date}
                       onChange={handleChange}
-                      placeholder="Estimated Date"
+                      placeholder={c.fields.date}
                       className="luxury-input"
                     />
                   </div>
@@ -156,7 +162,7 @@ export default function ContactForm() {
                       name="guests"
                       value={form.guests}
                       onChange={handleChange}
-                      placeholder="Number of Guests"
+                      placeholder={c.fields.guests}
                       className="luxury-input"
                     />
                   </div>
@@ -167,24 +173,40 @@ export default function ContactForm() {
                     name="message"
                     value={form.message}
                     onChange={handleChange}
-                    placeholder="Tell Us About Your Vision"
+                    placeholder={c.fields.message}
                     rows={5}
                     className="luxury-input resize-none"
                   />
                 </div>
 
-                <button type="submit" className="btn-gold w-full justify-center">
-                  Send Your Vision
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M1 7h12M7 1l6 6-6 6"/>
-                  </svg>
+                {error && (
+                  <p className="font-body text-xs text-red-500 text-center leading-relaxed">{error}</p>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="btn-gold w-full justify-center disabled:opacity-60 disabled:cursor-not-allowed"
+                >
+                  {loading ? (
+                    <>
+                      <span className="inline-block w-3 h-3 border border-primary/60 border-t-primary rounded-full animate-spin" />
+                      Sending…
+                    </>
+                  ) : (
+                    <>
+                      {c.fields.submit}
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        <path d="M1 7h12M7 1l6 6-6 6"/>
+                      </svg>
+                    </>
+                  )}
                 </button>
 
                 <p className="font-body text-xs text-taupe text-center">
-                  We respect your privacy and will never share your information.
+                  {c.privacy}
                 </p>
               </form>
-            )}
           </motion.div>
         </div>
       </div>

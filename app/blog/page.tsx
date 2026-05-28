@@ -2,8 +2,10 @@ import type { Metadata } from 'next'
 import type React from 'react'
 import BlogGrid from '@/components/sections/BlogGrid'
 import CTASection from '@/components/sections/CTASection'
-import { blogContent, ctaContent } from '@/data/content'
 import AnimatedText from '@/components/ui/AnimatedText'
+import { getContent } from '@/lib/get-content'
+
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Blog – Wedding & Event Planning Guides for Marrakech',
@@ -11,7 +13,10 @@ export const metadata: Metadata = {
     'Discover our journal of real weddings, proposals, elopements, and planning guides to inspire your Marrakech celebration.',
 }
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const data = await getContent()
+  const { blogContent, ctaContent } = data
+
   return (
     <>
       {/* Page Hero */}
@@ -38,7 +43,7 @@ export default function BlogPage() {
         </div>
       </div>
 
-      <BlogGrid posts={blogContent.posts} />
+      <BlogGrid posts={blogContent.posts} readLabel={blogContent.readLabel} />
 
       <CTASection
         {...ctaContent.home}

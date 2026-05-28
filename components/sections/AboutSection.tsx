@@ -3,10 +3,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { aboutContent } from '@/data/content'
+import { aboutContent as defaultAboutContent } from '@/data/content'
 import AnimatedText from '@/components/ui/AnimatedText'
 
-export default function AboutSection() {
+type AboutContent = typeof defaultAboutContent
+
+export default function AboutSection({ content }: { content?: AboutContent }) {
+  const aboutContent = content ?? defaultAboutContent
   const ref = useRef<HTMLElement>(null)
   const inView = useInView(ref, { once: true, amount: 0.05 })
 

@@ -1,8 +1,9 @@
 'use client'
 import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import AnimatedText from '@/components/ui/AnimatedText'
+import CardModal, { ModalItem } from '@/components/ui/CardModal'
 
 interface ServiceItem {
   title: string
@@ -22,6 +23,7 @@ interface ServiceGridProps {
 export default function ServiceGrid({ eyebrow, title, subtitle, items, dark = false }: ServiceGridProps) {
   const ref = useRef<HTMLElement>(null)
   const inView = useInView(ref, { once: true, amount: 0.05 })
+  const [selected, setSelected] = useState<ModalItem | null>(null)
 
   const bg = dark ? 'bg-primary' : 'bg-ivory'
   const textMain = dark ? 'text-ivory' : 'text-primary'
@@ -29,6 +31,7 @@ export default function ServiceGrid({ eyebrow, title, subtitle, items, dark = fa
   const cardBg = dark ? 'bg-secondary/30' : 'bg-beige/30'
 
   return (
+    <>
     <section ref={ref} className={`py-24 lg:py-36 ${bg} overflow-hidden`}>
       <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
         {/* Header */}
@@ -66,7 +69,8 @@ export default function ServiceGrid({ eyebrow, title, subtitle, items, dark = fa
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1, delay: i * 0.12, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="group"
+              className="group cursor-pointer"
+              onClick={() => setSelected({ title: item.title, description: item.description, features: item.features, image: item.image, eyebrow })}
             >
               {/* Image */}
               <div className="relative aspect-[4/3] overflow-hidden mb-0">
@@ -78,6 +82,15 @@ export default function ServiceGrid({ eyebrow, title, subtitle, items, dark = fa
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
+                {/* View Details overlay */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-400">
+                  <span className="flex items-center gap-2 bg-gold text-primary font-body text-xs tracking-widest uppercase px-5 py-2.5">
+                    View Details
+                    <svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <path d="M1 7h12M7 1l6 6-6 6"/>
+                    </svg>
+                  </span>
+                </div>
               </div>
 
               {/* Content */}
@@ -102,5 +115,8 @@ export default function ServiceGrid({ eyebrow, title, subtitle, items, dark = fa
         </div>
       </div>
     </section>
+
+    <CardModal item={selected} onClose={() => setSelected(null)} reserveLabel="Reserve This Experience" />
+    </>
   )
 }
