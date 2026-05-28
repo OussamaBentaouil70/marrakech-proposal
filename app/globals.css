@@ -1,0 +1,418 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Manrope:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+  --font-manrope: 'Manrope', system-ui, sans-serif;
+
+  --color-primary: #2F241D;
+  --color-secondary: #5B4636;
+  --color-taupe: #A78F7A;
+  --color-gold: #C6A46A;
+  --color-beige: #DCCBB8;
+  --color-ivory: #F7F3EE;
+  --color-sage: #8A8B72;
+  --color-rose: #C9A89A;
+
+  --ease-luxury: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-cinematic: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  font-family: var(--font-manrope);
+  background-color: var(--color-ivory);
+  color: var(--color-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--color-gold);
+  color: var(--color-ivory);
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ivory);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 2px;
+}
+
+/* ─── Base Typography ─── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-cormorant);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+p {
+  font-family: var(--font-manrope);
+  line-height: 1.8;
+}
+
+/* ─── Utilities ─── */
+@layer utilities {
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #C6A46A, #A78F7A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .luxury-border {
+    border-color: rgba(198, 164, 106, 0.3);
+  }
+
+  .mask-bottom {
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  }
+
+  .backdrop-luxury {
+    backdrop-filter: blur(12px) saturate(1.3);
+    -webkit-backdrop-filter: blur(12px) saturate(1.3);
+  }
+}
+
+/* ─── Reveal Animations (for JS-driven classes) ─── */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.9s var(--ease-luxury), transform 0.9s var(--ease-luxury);
+}
+
+/* ─── Image hover zoom ─── */
+.img-zoom {
+  overflow: hidden;
+}
+.img-zoom img,
+.img-zoom .zoom-target {
+  transition: transform 0.8s var(--ease-luxury);
+}
+.img-zoom:hover img,
+.img-zoom:hover .zoom-target {
+  transform: scale(1.05);
+}
+
+/* ─── Cursor dot ─── */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-gold);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+  mix-blend-mode: multiply;
+}
+
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--color-gold);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+  opacity: 0.7;
+}
+
+/* ─── Gold Divider ─── */
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
+
+/* ─── Marquee ─── */
+.marquee-inner {
+  display: flex;
+  gap: 3rem;
+  animation: marquee 50s linear infinite;
+  white-space: nowrap;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ─── Page transitions ─── */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* ─── Horizontal scroll section ─── */
+.horizontal-scroll-track {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
+}
+
+/* ─── Number counter ─── */
+.stat-number {
+  font-family: var(--font-cormorant);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 300;
+  color: var(--color-gold);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+/* ─── Floating label ─── */
+.floating-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  writing-mode: vertical-lr;
+  font-size: 0.625rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  opacity: 0.7;
+}
+
+/* ─── Section heading with ornament ─── */
+.section-eyebrow {
+  font-family: var(--font-manrope);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+/* ─── Overline decoration ─── */
+.overline-gold::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--color-gold);
+  margin-bottom: 1rem;
+}
+
+/* ─── Button styles ─── */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2.5rem;
+  background: var(--color-gold);
+  color: var(--color-ivory);
+  font-family: var(--font-manrope);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-gold);
+  cursor: pointer;
+  transition: background 0.4s ease, color 0.4s ease, transform 0.3s ease;
+}
+
+.btn-gold:hover {
+  background: transparent;
+  color: var(--color-gold);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2.5rem;
+  background: transparent;
+  color: var(--color-ivory);
+  font-family: var(--font-manrope);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 1px solid rgba(247, 243, 238, 0.4);
+  cursor: pointer;
+  transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+.btn-outline:hover {
+  background: rgba(247, 243, 238, 0.1);
+  border-color: var(--color-ivory);
+}
+
+/* ─── Form inputs ─── */
+.luxury-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(198, 164, 106, 0.4);
+  padding: 0.75rem 0;
+  font-family: var(--font-manrope);
+  font-size: 0.875rem;
+  color: var(--color-primary);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.luxury-input:focus {
+  border-bottom-color: var(--color-gold);
+}
+
+/* ─── Hero form inputs (dark background) ─── */
+.luxury-input-hero {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(198, 164, 106, 0.35);
+  padding: 0.625rem 0;
+  font-family: var(--font-manrope);
+  font-size: 0.8125rem;
+  color: var(--color-ivory);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.luxury-input-hero::placeholder {
+  color: rgba(220, 203, 184, 0.45);
+}
+
+.luxury-input-hero:focus {
+  border-bottom-color: var(--color-gold);
+}
+
+/* ─── Blog article prose ─── */
+.prose-luxury h2 {
+  font-family: var(--font-cormorant);
+  color: var(--color-primary);
+  margin-bottom: 1.25rem;
+  line-height: 1.15;
+}
+
+.prose-luxury p {
+  font-family: var(--font-manrope);
+  color: rgba(91, 70, 54, 0.8);
+  font-size: 0.9375rem;
+  line-height: 1.85;
+  margin-bottom: 1rem;
+}
+
+.prose-luxury ul {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  margin-left: 1rem;
+  list-style: none;
+}
+
+.prose-luxury ul li {
+  font-family: var(--font-manrope);
+  font-size: 0.875rem;
+  color: rgba(91, 70, 54, 0.7);
+  line-height: 1.75;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.luxury-input::placeholder {
+  color: var(--color-taupe);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ─── Card hover ─── */
+.card-luxury {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card-luxury::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(47, 36, 29, 0.85) 100%);
+  transition: opacity 0.5s ease;
+}
+
+.card-luxury:hover::after {
+  opacity: 0.9;
+}
+
+/* ─── Ornamental separator ─── */
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--color-gold);
+  font-size: 0.625rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.ornament::before,
+.ornament::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold));
+}
+
+.ornament::after {
+  background: linear-gradient(90deg, var(--color-gold), transparent);
+}
+
+/* ─── Loading overlay ─── */
+#loading-screen {
+  position: fixed;
+  inset: 0;
+  background: var(--color-primary);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ─── Smooth image loading ─── */
+img {
+  display: block;
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: clamp(3rem, 10vw, 5rem) !important;
+  }
+}
