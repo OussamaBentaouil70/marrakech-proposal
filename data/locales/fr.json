@@ -3,8 +3,8 @@
     "name": "Marrakech Proposal",
     "tagline": "Organisation de mariages et événements de luxe à Marrakech",
     "description": "Des demandes en mariage romantiques aux elopements intimistes, en passant par les mariages de destination haut de gamme, nous prenons soin de chaque détail afin de créer des expériences élégantes, émotionnelles et parfaitement orchestrées à Marrakech.",
-    "email": "contact@marrakechproposal.com",
-    "whatsapp": "+212600000000",
+    "email": "contact@proposalmarrakech.com",
+    "whatsapp": "+212715083758",
     "instagram": "@marrakechproposal"
   },
   "navLinks": [
@@ -768,7 +768,9 @@
         "date": "Date Estimée",
         "guests": "Nombre d'Invités",
         "message": "Parlez-nous de Votre Vision",
-        "submit": "Envoyer Votre Vision"
+        "submit": "Envoyer Votre Vision",
+        "phone": "Numéro de Téléphone",
+        "budget": "Budget Estimé"
       },
       "serviceOptions": [
         "Demande en Mariage",

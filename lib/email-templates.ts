@@ -170,9 +170,9 @@ export function clientEmailTemplate(data: ClientEmailData): string {
                 <td align="center" style="padding:24px;background-color:${PRIMARY};">
                   <p style="font-family:Arial,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:${GOLD};margin:0 0 12px;">Can't Wait? Reach Us Directly</p>
                   <p style="margin:0;">
-                    <a href="https://wa.me/212600000000" style="font-family:Georgia,serif;font-size:14px;color:${IVORY};text-decoration:none;margin-right:20px;">WhatsApp</a>
+                    <a href="https://wa.me/212715083758" style="font-family:Georgia,serif;font-size:14px;color:${IVORY};text-decoration:none;margin-right:20px;">WhatsApp</a>
                     <span style="color:${GOLD};">·</span>
-                    <a href="mailto:contact@marrakechproposal.com" style="font-family:Georgia,serif;font-size:14px;color:${IVORY};text-decoration:none;margin-left:20px;">Email Us</a>
+                    <a href="mailto:contact@proposalmarrakech.com" style="font-family:Georgia,serif;font-size:14px;color:${IVORY};text-decoration:none;margin-left:20px;">Email Us</a>
                   </p>
                 </td>
               </tr>

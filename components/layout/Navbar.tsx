@@ -4,16 +4,13 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { navLinks as defaultNavLinks, siteConfig as defaultSiteConfig } from '@/data/content'
 import { cn } from '@/lib/utils'
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher'
+import { useLocale } from '@/components/providers/LocaleProvider'
 
-type NavLink = { label: string; href: string }
-type SiteConfig = typeof defaultSiteConfig
-
-export default function Navbar({ navLinks, siteConfig }: { navLinks?: NavLink[]; siteConfig?: SiteConfig }) {
-  navLinks = navLinks ?? defaultNavLinks
-  siteConfig = siteConfig ?? defaultSiteConfig
+export default function Navbar() {
+  const { data } = useLocale()
+  const { navLinks, siteConfig } = data
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [hidden, setHidden] = useState(false)

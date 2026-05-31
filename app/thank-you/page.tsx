@@ -132,7 +132,7 @@ export default function ThankYouPage() {
             </svg>
           </Link>
           <a
-            href="https://wa.me/212600000000"
+            href="https://wa.me/212715083758"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-outline"

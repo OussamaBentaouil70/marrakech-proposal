@@ -19,12 +19,22 @@ export default function ContactForm({ content }: ContactFormProps) {
   const inView = useInView(ref, { once: true, amount: 0.05 })
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const currencies = [
+    { code: 'USD', label: 'USD ($)' },
+    { code: 'EUR', label: 'EUR (€)' },
+    { code: 'GBP', label: 'GBP (£)' },
+    { code: 'MAD', label: 'MAD (د.م.)' },
+  ]
+
   const [form, setForm] = useState({
     name: '',
     email: '',
+    phone: '',
     service: '',
     date: '',
     guests: '',
+    budget: '',
+    currency: 'USD',
     message: '',
   })
 
@@ -37,15 +47,17 @@ export default function ContactForm({ content }: ContactFormProps) {
     setLoading(true)
     setError('')
     try {
-      const res = await fetch('/api/contact', {
+      const endpoint = process.env.NEXT_PUBLIC_PHP_MAILER_URL ?? '/api/contact'
+      const res = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, formType: 'contact' }),
+        body: JSON.stringify({ ...form, formType: 'contact', budget: form.budget ? `${form.budget} ${form.currency}` : '' }),
       })
-      if (!res.ok) throw new Error('Failed')
+      const result = await res.json()
+      if (!res.ok) throw new Error(result.detail || result.error || 'Failed')
       router.push('/thank-you')
-    } catch {
-      setError('Something went wrong. Please try again or contact us via WhatsApp.')
+    } catch (err) {
+      setError((err as Error).message || 'Something went wrong. Please try again or contact us via WhatsApp.')
       setLoading(false)
     }
   }
@@ -108,31 +120,38 @@ export default function ContactForm({ content }: ContactFormProps) {
             transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             <form onSubmit={handleSubmit} className="space-y-8">
+
+                {/* Name + Email */}
                 <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <input
-                      name="name"
-                      value={form.name}
-                      onChange={handleChange}
-                      placeholder={c.fields.name}
-                      required
-                      className="luxury-input"
-                    />
-                  </div>
-                  <div>
-                    <input
-                      name="email"
-                      type="email"
-                      value={form.email}
-                      onChange={handleChange}
-                      placeholder={c.fields.email}
-                      required
-                      className="luxury-input"
-                    />
-                  </div>
+                  <input
+                    name="name"
+                    value={form.name}
+                    onChange={handleChange}
+                    placeholder={c.fields.name}
+                    required
+                    className="luxury-input"
+                  />
+                  <input
+                    name="email"
+                    type="email"
+                    value={form.email}
+                    onChange={handleChange}
+                    placeholder={c.fields.email}
+                    required
+                    className="luxury-input"
+                  />
                 </div>
 
-                <div>
+                {/* Phone + Service */}
+                <div className="grid md:grid-cols-2 gap-8">
+                  <input
+                    name="phone"
+                    type="tel"
+                    value={form.phone}
+                    onChange={handleChange}
+                    placeholder={c.fields.phone}
+                    className="luxury-input"
+                  />
                   <select
                     name="service"
                     value={form.service}
@@ -147,37 +166,61 @@ export default function ContactForm({ content }: ContactFormProps) {
                   </select>
                 </div>
 
+                {/* Date + Guests */}
                 <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <input
-                      name="date"
-                      value={form.date}
-                      onChange={handleChange}
-                      placeholder={c.fields.date}
-                      className="luxury-input"
-                    />
-                  </div>
-                  <div>
-                    <input
-                      name="guests"
-                      value={form.guests}
-                      onChange={handleChange}
-                      placeholder={c.fields.guests}
-                      className="luxury-input"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <textarea
-                    name="message"
-                    value={form.message}
+                  <input
+                    name="date"
+                    type="date"
+                    value={form.date}
                     onChange={handleChange}
-                    placeholder={c.fields.message}
-                    rows={5}
-                    className="luxury-input resize-none"
+                    className="luxury-input"
+                    style={{ colorScheme: 'light' }}
+                  />
+                  <input
+                    name="guests"
+                    type="number"
+                    min="1"
+                    value={form.guests}
+                    onChange={handleChange}
+                    placeholder={c.fields.guests}
+                    className="luxury-input"
                   />
                 </div>
+
+                {/* Budget + Currency */}
+                <div className="flex gap-0 border border-primary/20 focus-within:border-gold/60 transition-colors duration-300">
+                  <select
+                    name="currency"
+                    value={form.currency}
+                    onChange={handleChange}
+                    className="bg-transparent text-secondary font-body text-sm px-3 py-3 border-r border-primary/20 cursor-pointer focus:outline-none appearance-none flex-shrink-0"
+                    style={{ minWidth: '120px' }}
+                  >
+                    {currencies.map((cur) => (
+                      <option key={cur.code} value={cur.code}>{cur.label}</option>
+                    ))}
+                  </select>
+                  <input
+                    name="budget"
+                    type="number"
+                    min="0"
+                    value={form.budget}
+                    onChange={handleChange}
+                    placeholder={c.fields.budget}
+                    className="flex-1 bg-transparent text-secondary font-body text-sm placeholder:text-secondary/40 px-4 py-3 focus:outline-none w-full"
+                  />
+                </div>
+
+                {/* Message */}
+                <textarea
+                  name="message"
+                  value={form.message}
+                  onChange={handleChange}
+                  placeholder={c.fields.message}
+                  rows={5}
+                  className="luxury-input resize-none"
+                />
+
 
                 {error && (
                   <p className="font-body text-xs text-red-500 text-center leading-relaxed">{error}</p>

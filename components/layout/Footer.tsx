@@ -1,13 +1,11 @@
+'use client'
 import Link from 'next/link'
 import Image from 'next/image'
-import { navLinks as defaultNavLinks, siteConfig as defaultSiteConfig } from '@/data/content'
+import { useLocale } from '@/components/providers/LocaleProvider'
 
-type NavLink = { label: string; href: string }
-type SiteConfig = typeof defaultSiteConfig
-
-export default function Footer({ navLinks, siteConfig }: { navLinks?: NavLink[]; siteConfig?: SiteConfig }) {
-  navLinks = navLinks ?? defaultNavLinks
-  siteConfig = siteConfig ?? defaultSiteConfig
+export default function Footer() {
+  const { data } = useLocale()
+  const { navLinks, siteConfig } = data
   return (
     <footer className="bg-primary text-ivory">
       {/* Top ornament */}
@@ -30,41 +28,16 @@ export default function Footer({ navLinks, siteConfig }: { navLinks?: NavLink[];
               Luxury wedding & event planning in Marrakech, Morocco. We create romantic proposals,
               intimate elopements, and destination weddings with elegance and intention.
             </p>
-            {/* Social Icons */}
-            <div className="flex gap-3">
-              <a
-                href={`https://wa.me/${siteConfig.whatsapp}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-primary transition-all duration-300"
-                aria-label="WhatsApp"
-              >
-                <i className="fa fa-whatsapp text-base" />
-              </a>
-              <a
-                href={`https://instagram.com/${siteConfig.instagram.replace('@', '')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-primary transition-all duration-300"
-                aria-label="Instagram"
-              >
-                <i className="fa fa-instagram text-base" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-primary transition-all duration-300"
-                aria-label="Facebook"
-              >
-                <i className="fa fa-facebook text-base" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-primary transition-all duration-300"
-                aria-label="YouTube"
-              >
-                <i className="fa fa-youtube-play text-base" />
-              </a>
-            </div>
+            {/* WhatsApp only */}
+            <a
+              href={`https://wa.me/${siteConfig.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-primary transition-all duration-300"
+              aria-label="WhatsApp"
+            >
+              <i className="fa fa-whatsapp text-base" />
+            </a>
           </div>
 
           {/* Navigation */}

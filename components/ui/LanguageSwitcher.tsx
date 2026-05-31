@@ -1,8 +1,8 @@
 'use client'
 import { useState, useEffect, useRef } from 'react'
-import { useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { cn } from '@/lib/utils'
+import { useLocale } from '@/components/providers/LocaleProvider'
 
 type Locale = 'en' | 'fr' | 'es'
 
@@ -16,7 +16,7 @@ export default function LanguageSwitcher() {
   const [current, setCurrent] = useState<Locale>('en')
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
-  const router = useRouter()
+  const { setLocale } = useLocale()
 
   useEffect(() => {
     const match = document.cookie.match(/(?:^|;\s*)locale=([^;]+)/)
@@ -34,9 +34,8 @@ export default function LanguageSwitcher() {
 
   const select = (code: Locale) => {
     setCurrent(code)
-    document.cookie = `locale=${code}; path=/; max-age=31536000`
+    setLocale(code)
     setOpen(false)
-    router.refresh()
   }
 
   const active = LOCALES.find((l) => l.code === current)!
@@ -50,13 +49,8 @@ export default function LanguageSwitcher() {
       >
         <span className={cn('fi', active.flag, 'rounded-sm')} style={{ width: '1.1em', height: '0.85em' }} />
         <span>{active.label}</span>
-        <svg
-          width="8"
-          height="5"
-          viewBox="0 0 8 5"
-          fill="none"
-          className={cn('transition-transform duration-300', open && 'rotate-180')}
-        >
+        <svg width="8" height="5" viewBox="0 0 8 5" fill="none"
+          className={cn('transition-transform duration-300', open && 'rotate-180')}>
           <path d="M1 1l3 3 3-3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </button>
@@ -76,9 +70,7 @@ export default function LanguageSwitcher() {
                   onClick={() => select(loc.code)}
                   className={cn(
                     'w-full flex items-center gap-2.5 px-4 py-2.5 font-body text-xs tracking-[0.12em] uppercase transition-colors duration-200',
-                    current === loc.code
-                      ? 'text-gold bg-gold/10'
-                      : 'text-beige/60 hover:text-gold hover:bg-gold/5'
+                    current === loc.code ? 'text-gold bg-gold/10' : 'text-beige/60 hover:text-gold hover:bg-gold/5'
                   )}
                 >
                   <span className={cn('fi', loc.flag, 'rounded-sm')} style={{ width: '1.1em', height: '0.85em' }} />

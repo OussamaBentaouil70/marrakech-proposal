@@ -4,10 +4,9 @@ import './globals.css'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import LenisProvider from '@/components/providers/LenisProvider'
+import { LocaleProvider } from '@/components/providers/LocaleProvider'
 import CustomCursor from '@/components/ui/CustomCursor'
-import { getContent } from '@/lib/get-content'
-
-export const dynamic = 'force-dynamic'
+import WhatsAppButton from '@/components/ui/WhatsAppButton'
 
 export const metadata: Metadata = {
   title: {
@@ -46,13 +45,7 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  const data = await getContent()
-
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">
       <head>
@@ -64,12 +57,15 @@ export default async function RootLayout({
         <noscript>
           <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W2T8PHND" height="0" width="0" style={{ display: 'none', visibility: 'hidden' }} />
         </noscript>
-        <LenisProvider>
-          <CustomCursor />
-          <Navbar navLinks={data.navLinks} siteConfig={data.siteConfig} />
-          <main>{children}</main>
-          <Footer navLinks={data.navLinks} siteConfig={data.siteConfig} />
-        </LenisProvider>
+        <LocaleProvider>
+          <LenisProvider>
+            <CustomCursor />
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+            <WhatsAppButton phone="+212715083758" />
+          </LenisProvider>
+        </LocaleProvider>
       </body>
     </html>
   )

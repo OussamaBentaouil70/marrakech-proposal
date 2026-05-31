@@ -49,15 +49,17 @@ export default function HeroForm({ defaultService = '' }: HeroFormProps) {
     setLoading(true)
     setError('')
     try {
-      const res = await fetch('/api/contact', {
+      const endpoint = process.env.NEXT_PUBLIC_PHP_MAILER_URL ?? '/api/contact'
+      const res = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...form, formType: 'hero' }),
       })
-      if (!res.ok) throw new Error('Failed')
+      const result = await res.json()
+      if (!res.ok) throw new Error(result.detail || result.error || 'Failed')
       router.push('/thank-you')
-    } catch {
-      setError('Something went wrong. Please try again or contact us via WhatsApp.')
+    } catch (err) {
+      setError((err as Error).message || 'Something went wrong. Please try again or contact us via WhatsApp.')
       setLoading(false)
     }
   }
