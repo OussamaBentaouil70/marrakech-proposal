@@ -118,7 +118,7 @@ export default function HeroSection({
   return (
     <section
       ref={heroRef}
-      className="relative h-[100svh] min-h-[640px] overflow-hidden flex items-end bg-primary"
+      className={`relative overflow-hidden flex items-end bg-primary ${showForm ? 'min-h-[100svh] h-auto lg:h-[100svh]' : 'h-[100svh] min-h-[640px]'}`}
     >
       {/* Background Images */}
       <div ref={imageRef} className="absolute inset-0 scale-110 will-change-transform">
@@ -161,16 +161,16 @@ export default function HeroSection({
 
       {/* Content */}
       <motion.div
-        className="relative z-10 w-full max-w-[1600px] mx-auto px-6 lg:px-12 pb-16 lg:pb-20"
+        className="relative z-10 w-full max-w-[1600px] mx-auto px-6 lg:px-12 pb-10 lg:pb-20"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         {showForm ? (
           /* Two-column layout: text left, form right */
-          <div className="grid lg:grid-cols-[1fr_400px] xl:grid-cols-[1fr_440px] gap-8 lg:gap-14 items-end">
-            {/* Left: text content */}
-            <div>
+          <div className="grid lg:grid-cols-[1fr_400px] xl:grid-cols-[1fr_440px] gap-6 lg:gap-14 items-end">
+            {/* Left: text content — desktop only */}
+            <div className="hidden lg:block">
               <motion.p variants={fadeVariants} custom={0} className="section-eyebrow mb-4">
                 {eyebrow}
               </motion.p>
@@ -198,11 +198,7 @@ export default function HeroSection({
                 {subtitle}
               </motion.p>
 
-              <motion.div
-                variants={fadeVariants}
-                custom={0.7}
-                className="flex flex-wrap items-center gap-4"
-              >
+              <motion.div variants={fadeVariants} custom={0.7} className="flex flex-wrap items-center gap-4">
                 <Link href={ctaHref} className="btn-outline">
                   {cta}
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -212,8 +208,26 @@ export default function HeroSection({
               </motion.div>
             </div>
 
-            {/* Right: compact reservation form */}
-            <HeroForm defaultService={defaultService} />
+            {/* Form — full width on mobile, right column on desktop */}
+            <div className="w-full">
+              {/* Mobile-only compact heading above form */}
+              <div className="lg:hidden mb-5 pt-24">
+                <motion.p variants={fadeVariants} custom={0} className="section-eyebrow mb-3">
+                  {eyebrow}
+                </motion.p>
+                <h1
+                  className="font-heading text-ivory leading-tight"
+                  style={{ fontSize: 'clamp(1.8rem, 7vw, 2.5rem)', lineHeight: 1.05 }}
+                >
+                  {titleLines.map((line, i) => (
+                    <span key={i} className="block">
+                      {i % 2 === 1 ? <em className="italic">{line}</em> : line}
+                    </span>
+                  ))}
+                </h1>
+              </div>
+              <HeroForm defaultService={defaultService} />
+            </div>
           </div>
         ) : (
           /* Single-column layout (home or pages without form) */
