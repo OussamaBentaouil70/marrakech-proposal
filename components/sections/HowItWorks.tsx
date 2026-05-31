@@ -25,7 +25,7 @@ export default function HowItWorks({ eyebrow, title, steps, dark = false }: HowI
   const textSub = 'text-beige/60'
 
   return (
-    <section ref={ref} className={`py-24 lg:py-36 bg-primary overflow-hidden`}>
+    <section id="process" ref={ref} className={`py-24 lg:py-36 bg-primary overflow-hidden`}>
       <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="flex flex-col lg:flex-row justify-between items-start gap-8 mb-16 lg:mb-20">

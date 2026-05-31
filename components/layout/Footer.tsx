@@ -1,11 +1,16 @@
 'use client'
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { useLocale } from '@/components/providers/LocaleProvider'
+import { getLangFromPath, localePath } from '@/lib/locales'
 
 export default function Footer() {
   const { data } = useLocale()
   const { navLinks, siteConfig } = data
+  const pathname = usePathname()
+  const lang = getLangFromPath(pathname)
+  const lp = (href: string) => localePath(lang, href)
   return (
     <footer className="bg-primary text-ivory">
       {/* Top ornament */}
@@ -47,7 +52,7 @@ export default function Footer() {
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
-                    href={link.href}
+                    href={lp(link.href)}
                     className="font-body text-sm text-beige/60 hover:text-gold transition-colors duration-300 tracking-wide"
                   >
                     {link.label}

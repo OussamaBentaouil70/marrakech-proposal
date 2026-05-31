@@ -4,6 +4,7 @@ import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import AnimatedText from '@/components/ui/AnimatedText'
 import { siteConfig } from '@/data/content'
+import { useLocaleLink } from '@/lib/use-locale-link'
 
 interface CTASectionProps {
   eyebrow: string
@@ -26,6 +27,7 @@ export default function CTASection({
 }: CTASectionProps) {
   const ref = useRef<HTMLElement>(null)
   const inView = useInView(ref, { once: true, amount: 0.05 })
+  const lp = useLocaleLink()
 
   return (
     <section
@@ -90,7 +92,7 @@ export default function CTASection({
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-wrap items-center justify-center gap-4"
         >
-          <Link href={ctaHref} className="btn-gold">
+          <Link href={lp(ctaHref)} className="btn-gold">
             {cta}
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M1 7h12M7 1l6 6-6 6"/>

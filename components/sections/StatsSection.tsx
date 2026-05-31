@@ -19,6 +19,7 @@ export default function StatsSection({ stats, dark = false }: StatsSectionProps)
 
   return (
     <section
+      id="stats"
       ref={ref}
       className={`py-20 lg:py-28 ${dark ? 'bg-primary' : 'bg-ivory'}`}
     >

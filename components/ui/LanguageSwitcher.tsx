@@ -1,28 +1,25 @@
 'use client'
-import { useState, useEffect, useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
+import { useRouter, usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { cn } from '@/lib/utils'
-import { useLocale } from '@/components/providers/LocaleProvider'
+import type { Lang } from '@/lib/locales'
 
-type Locale = 'en' | 'fr' | 'es'
-
-const LOCALES: { code: Locale; label: string; flag: string }[] = [
+const LOCALES: { code: Lang; label: string; flag: string }[] = [
   { code: 'en', label: 'EN', flag: 'fi-gb' },
   { code: 'fr', label: 'FR', flag: 'fi-fr' },
   { code: 'es', label: 'ES', flag: 'fi-es' },
 ]
 
 export default function LanguageSwitcher() {
-  const [current, setCurrent] = useState<Locale>('en')
-  const [open, setOpen] = useState(false)
+  const router = useRouter()
+  const pathname = usePathname()
   const ref = useRef<HTMLDivElement>(null)
-  const { setLocale } = useLocale()
+  const [open, setOpen] = useState(false)
 
-  useEffect(() => {
-    const match = document.cookie.match(/(?:^|;\s*)locale=([^;]+)/)
-    const saved = match?.[1] as Locale
-    if (saved && ['en', 'fr', 'es'].includes(saved)) setCurrent(saved)
-  }, [])
+  const seg = pathname.split('/')[1]
+  const current: Lang = seg === 'fr' ? 'fr' : seg === 'es' ? 'es' : 'en'
+  const active = LOCALES.find((l) => l.code === current)!
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -32,13 +29,15 @@ export default function LanguageSwitcher() {
     return () => document.removeEventListener('mousedown', handler)
   }, [])
 
-  const select = (code: Locale) => {
-    setCurrent(code)
-    setLocale(code)
+  const select = (code: Lang) => {
     setOpen(false)
+    const segments = pathname.split('/')
+    const hasLang = ['fr', 'es'].includes(segments[1])
+    const basePath = hasLang ? '/' + segments.slice(2).join('/') : pathname
+    const cleanBase = basePath === '/' || basePath === '' ? '' : basePath
+    const newPath = code === 'en' ? cleanBase || '/' : `/${code}${cleanBase || '/'}`
+    router.push(newPath)
   }
-
-  const active = LOCALES.find((l) => l.code === current)!
 
   return (
     <div ref={ref} className="relative">

@@ -23,7 +23,7 @@ export default function WeddingTypes({ eyebrow, title, subtitle, types }: Weddin
 
   return (
     <>
-    <section ref={ref} className="py-24 lg:py-36 bg-ivory overflow-hidden">
+    <section id="wedding-types" ref={ref} className="py-24 lg:py-36 bg-ivory overflow-hidden">
       <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="flex flex-col lg:flex-row justify-between items-start gap-8 mb-16 lg:mb-20">

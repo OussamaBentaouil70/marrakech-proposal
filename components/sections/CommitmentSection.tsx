@@ -25,7 +25,7 @@ export default function CommitmentSection({ eyebrow, title, items, dark = false 
   const textSub = dark ? 'text-beige/60' : 'text-secondary/70'
 
   return (
-    <section ref={ref} className={`py-24 lg:py-36 ${bg}`}>
+    <section id="approach" ref={ref} className={`py-24 lg:py-36 ${bg}`}>
       <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="max-w-2xl mb-16 lg:mb-20">

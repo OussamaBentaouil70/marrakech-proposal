@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher'
 import { useLocale } from '@/components/providers/LocaleProvider'
+import { getLangFromPath, localePath } from '@/lib/locales'
 
 export default function Navbar() {
   const { data } = useLocale()
@@ -16,6 +17,8 @@ export default function Navbar() {
   const [hidden, setHidden] = useState(false)
   const lastScrollY = useRef(0)
   const pathname = usePathname()
+  const lang = getLangFromPath(pathname)
+  const lp = (href: string) => localePath(lang, href)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,7 +55,7 @@ export default function Navbar() {
       >
         <div className="max-w-[1600px] mx-auto px-6 lg:px-12 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href={lp('/')} className="flex items-center">
             <Image
               src="/images/logo.png"
               alt="Marrakech Proposal"
@@ -71,17 +74,17 @@ export default function Navbar() {
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
-                  href={link.href}
+                  href={lp(link.href)}
                   className={cn(
                     'font-body text-xs tracking-[0.15em] uppercase transition-colors duration-300 relative group',
-                    pathname === link.href ? 'text-gold' : 'text-beige hover:text-gold'
+                    pathname.endsWith(link.href) ? 'text-gold' : 'text-beige hover:text-gold'
                   )}
                 >
                   {link.label}
                   <span
                     className={cn(
                       'absolute -bottom-1 left-0 h-px bg-gold transition-all duration-300',
-                      pathname === link.href ? 'w-full' : 'w-0 group-hover:w-full'
+                      pathname.endsWith(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
                     )}
                   />
                 </Link>
@@ -154,10 +157,10 @@ export default function Navbar() {
                   transition={{ delay: i * 0.07, duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
                 >
                   <Link
-                    href={link.href}
+                    href={lp(link.href)}
                     className={cn(
                       'font-heading text-5xl leading-none transition-colors duration-200',
-                      pathname === link.href ? 'text-gold' : 'text-ivory hover:text-gold'
+                      pathname.endsWith(link.href) ? 'text-gold' : 'text-ivory hover:text-gold'
                     )}
                   >
                     {link.label}

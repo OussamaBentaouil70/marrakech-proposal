@@ -118,6 +118,7 @@ export default function HeroSection({
   return (
     <section
       ref={heroRef}
+      id="hero"
       className={`relative overflow-hidden flex items-end bg-primary ${showForm ? 'min-h-[100svh] h-auto lg:h-[100svh]' : 'h-[100svh] min-h-[640px]'}`}
     >
       {/* Background Images */}

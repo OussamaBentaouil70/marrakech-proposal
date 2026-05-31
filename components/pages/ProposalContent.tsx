@@ -19,7 +19,7 @@ export default function ProposalContent() {
       <HeroSection {...heroContent.proposal} image="/images/proposals/desert-proposal.png" variant="page" showForm defaultService="Marriage Proposal" />
       <MarqueeSection items={marqueeItems} />
       <StatsSection stats={statsContent.proposal} />
-      <ServiceGrid eyebrow={proposalTypesContent.eyebrow} title={proposalTypesContent.title} subtitle={proposalTypesContent.subtitle} items={proposalTypesContent.types} dark={false} />
+      <ServiceGrid eyebrow={proposalTypesContent.eyebrow} title={proposalTypesContent.title} subtitle={proposalTypesContent.subtitle} items={proposalTypesContent.types} dark={false} sectionId="proposal-types" />
       <AboutSection content={aboutContent} />
       <CommitmentSection {...commitmentContent.proposal} dark={false} />
       <HowItWorks {...howItWorksContent.proposal} />

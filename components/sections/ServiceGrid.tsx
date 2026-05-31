@@ -18,9 +18,10 @@ interface ServiceGridProps {
   subtitle: string
   items: ServiceItem[]
   dark?: boolean
+  sectionId?: string
 }
 
-export default function ServiceGrid({ eyebrow, title, subtitle, items, dark = false }: ServiceGridProps) {
+export default function ServiceGrid({ eyebrow, title, subtitle, items, dark = false, sectionId = 'services' }: ServiceGridProps) {
   const ref = useRef<HTMLElement>(null)
   const inView = useInView(ref, { once: true, amount: 0.05 })
   const [selected, setSelected] = useState<ModalItem | null>(null)
@@ -32,7 +33,7 @@ export default function ServiceGrid({ eyebrow, title, subtitle, items, dark = fa
 
   return (
     <>
-    <section ref={ref} className={`py-24 lg:py-36 ${bg} overflow-hidden`}>
+    <section id={sectionId} ref={ref} className={`py-24 lg:py-36 ${bg} overflow-hidden`}>
       <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="max-w-2xl mb-16 lg:mb-20">

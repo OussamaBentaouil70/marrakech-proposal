@@ -25,7 +25,7 @@ export default function Testimonials({ eyebrow, title, testimonials, dark = true
   const outerBg = dark ? 'bg-primary' : 'bg-beige/30'
 
   return (
-    <section ref={ref} className={`py-24 lg:py-36 ${outerBg} overflow-hidden`}>
+    <section id="testimonials" ref={ref} className={`py-24 lg:py-36 ${outerBg} overflow-hidden`}>
       <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="mb-16 lg:mb-20">

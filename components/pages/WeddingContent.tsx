@@ -21,7 +21,7 @@ export default function WeddingContent() {
       <MarqueeSection items={marqueeItems} />
       <StatsSection stats={statsContent.wedding} />
       <WeddingTypes {...weddingTypesContent} />
-      <ServiceGrid eyebrow={weddingExtrasContent.eyebrow} title={weddingExtrasContent.title} subtitle={weddingExtrasContent.subtitle} items={weddingExtrasContent.extras} dark />
+      <ServiceGrid eyebrow={weddingExtrasContent.eyebrow} title={weddingExtrasContent.title} subtitle={weddingExtrasContent.subtitle} items={weddingExtrasContent.extras} dark sectionId="wedding-extras" />
       <AboutSection content={aboutContent} />
       <CommitmentSection {...commitmentContent.wedding} dark={false} />
       <HowItWorks {...howItWorksContent.wedding} />

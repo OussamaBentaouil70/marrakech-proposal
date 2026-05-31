@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
+import { useLocaleLink } from '@/lib/use-locale-link'
 
 interface BlogPost {
   title: string
@@ -16,6 +17,7 @@ interface BlogPost {
 export default function BlogGrid({ posts, readLabel = 'Read Article' }: { posts: BlogPost[]; readLabel?: string }) {
   const ref = useRef<HTMLElement>(null)
   const inView = useInView(ref, { once: true, amount: 0.05 })
+  const lp = useLocaleLink()
 
   return (
     <section ref={ref} className="py-24 lg:py-36 bg-ivory">
@@ -29,7 +31,7 @@ export default function BlogGrid({ posts, readLabel = 'Read Article' }: { posts:
               transition={{ duration: 1, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="group"
             >
-              <Link href={`/blog/${post.slug}`}>
+              <Link href={lp(`/blog/${post.slug}`)}>
                 {/* Image */}
                 <div className="relative overflow-hidden aspect-[4/3] mb-6">
                   <Image

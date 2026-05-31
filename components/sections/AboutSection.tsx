@@ -16,7 +16,7 @@ export default function AboutSection({ content }: { content?: AboutContent }) {
   const bodyParagraphs = aboutContent.body.split('\n\n')
 
   return (
-    <section ref={ref} className="py-24 lg:py-36 bg-ivory overflow-hidden">
+    <section id="about" ref={ref} className="py-24 lg:py-36 bg-ivory overflow-hidden">
       <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Image */}

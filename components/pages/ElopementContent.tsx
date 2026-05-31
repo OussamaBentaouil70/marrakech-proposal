@@ -19,7 +19,7 @@ export default function ElopementContent() {
       <HeroSection {...heroContent.elopement} image="/images/elopements/private-dinner.png" variant="page" showForm defaultService="Intimate Elopement" />
       <MarqueeSection items={marqueeItems} />
       <StatsSection stats={statsContent.elopement} />
-      <ServiceGrid eyebrow={elopementTypesContent.eyebrow} title={elopementTypesContent.title} subtitle={elopementTypesContent.subtitle} items={elopementTypesContent.types} dark={false} />
+      <ServiceGrid eyebrow={elopementTypesContent.eyebrow} title={elopementTypesContent.title} subtitle={elopementTypesContent.subtitle} items={elopementTypesContent.types} dark={false} sectionId="elopement-types" />
       <AboutSection content={aboutContent} />
       <CommitmentSection {...commitmentContent.elopement} dark={false} />
       <HowItWorks {...howItWorksContent.elopement} />

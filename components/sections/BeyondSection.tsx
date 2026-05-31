@@ -24,7 +24,7 @@ export default function BeyondSection({ eyebrow, title, subtitle, items }: Beyon
   const inView = useInView(ref, { once: true, amount: 0.05 })
 
   return (
-    <section ref={ref} className="py-24 lg:py-36 bg-beige/30 overflow-hidden">
+    <section id="experiences" ref={ref} className="py-24 lg:py-36 bg-beige/30 overflow-hidden">
       <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 lg:mb-24">

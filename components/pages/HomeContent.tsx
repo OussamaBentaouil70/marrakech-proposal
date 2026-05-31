@@ -17,7 +17,7 @@ export default function HomeContent() {
 
   return (
     <>
-      <HeroSection {...heroContent.home} image="/images/home/luxury-proposal.png" variant="home" />
+      <HeroSection {...heroContent.home} image="/images/home/luxury-proposal.png" variant="home" showForm defaultService="" />
       <MarqueeSection items={marqueeItems} />
       <StatsSection stats={statsContent.home} />
       <FeaturedWork content={featuredWorkContent} />
